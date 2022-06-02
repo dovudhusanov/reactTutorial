@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-function Lesson() {
+const [count, setCount] = useState;
 
-  const [count, setCount] = useState;
+function Lesson() {
 
   return ( 
       <>
