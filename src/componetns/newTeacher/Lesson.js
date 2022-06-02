@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 
-const [count, setCount] = useState;
-
 function Lesson() {
+
+  const [count, setCount] = useState(0);
 
   return ( 
       <>
         <h3>Count : {count}</h3>
-        <button className='btn' onClick={() => setCount(count + 1)}>Incr</button>
-        <button className='btn' onClick={() => setCount(count - 1)}>Decr</button>
+        <button className='btn btn-success' onClick={() => setCount(count + 1)}>Incr</button>
+        <button className='btn btn-danger' onClick={() => setCount(count - 1)}>Decr</button>
+        <button className='btn btn-primary' onClick={() => setCount(0)}>cls</button>
       </>
    );
 }
