@@ -29,7 +29,7 @@ import {
 // import UseEffectTask from "./HooksTutorial/UseEffectTask";
 // import ChartTutorial from "./ChartTutorial/ChartsTutorial";
 // import ChartComp from "./ChartTutorial/ChartComp";
-import AddValueTask from "./Task/AddValueTask";
+// import AddValueTask from "./Task/AddValueTask";
 import Lesson from "./componetns/newTeacher/Lesson";
 
 function App() {
@@ -58,7 +58,7 @@ function App() {
                 {/*<UseEffectTask />*/}
                 {/*<ChartTutorial />*/}
                 {/*<ChartComp />*/}
-                <AddValueTask />
+                {/* <AddValueTask /> */}
                 <Lesson />
             </div>
         </Router>
