@@ -8,10 +8,9 @@ function Lesson() {
       <>
           <div className='app w-50 mx-auto'>
             <h3>Count : {count}</h3>
-            <p>salom</p>
               <button className='btn btn-success' onClick={() => setCount(count + 1)}>Incr</button>
               <button className='btn btn-danger' onClick={() => setCount(count - 1)}>Decr</button>
-              <button className='btn btn-primary' onClick={() => setCount(0)}>cls</button>
+              <button className='btn btn-primary' onClick={() => setCount(0)}>remove</button>
           </div>
       </>
    );
