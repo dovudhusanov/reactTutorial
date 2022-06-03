@@ -7,6 +7,7 @@ function Lesson() {
   return ( 
       <>
           <div className='app w-50 mx-auto'>
+              <h1>toshoq</h1>
             <h3>Count : {count}</h3>
             <p>bot</p>
               <button className='btn btn-success' onClick={() => setCount(count + 1)}>Incr</button>
