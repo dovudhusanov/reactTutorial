@@ -15,6 +15,7 @@ function Lesson() {
             <h3>Count : {count}</h3>
               <button className='btn btn-success' onClick={() => setCount(count + 1)}>Incr</button>
               <button className='btn btn-danger' onClick={() => setCount(count - 1)}>Decr</button>
+<<<<<<< HEAD
               <button className='btn btn-primary' onClick={() => setCount(0)}>cls</button>
               <br/><br/>
               <button className='btn btn-secondary' onClick={() => setToggle(!toggle)}>Toggle Btn</button>
@@ -33,6 +34,9 @@ function Lesson() {
                   </p>
                 : null
               }
+=======
+              <button className='btn btn-primary' onClick={() => setCount(0)}>remove</button>
+>>>>>>> c923337c1fbedc72f193129731720017477c44df
           </div>
       </>
    );
