@@ -1,5 +1,5 @@
 import React from 'react';
-import Style from '../../style/style.css';
+import '../../style/style.css';
 import BtnIncrDecr from "./BtnIncrDecr/BtnIncrDecr";
 import IfElse from "./IfElse/IfElse";
 import ValueUseState from "./ValueUseState/ValueUseState";
