@@ -30,7 +30,8 @@ import {
 // import ChartTutorial from "./ChartTutorial/ChartsTutorial";
 // import ChartComp from "./ChartTutorial/ChartComp";
 // import AddValueTask from "./Task/AddValueTask";
-import Lesson from "./componetns/newTeacher/Lesson";
+// import Lesson from "./componetns/newTeacher/Lesson";
+import PropsTutorial from "./componetns/newTeacher/PropsTutorial/PropsTutorial";
 
 function App() {
     return (
@@ -59,7 +60,8 @@ function App() {
                 {/*<ChartTutorial />*/}
                 {/*<ChartComp />*/}
                 {/* <AddValueTask /> */}
-                <Lesson />
+                {/*<Lesson />*/}
+                <PropsTutorial />
             </div>
         </Router>
     );
