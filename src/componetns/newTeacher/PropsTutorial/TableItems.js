@@ -1,15 +1,16 @@
 import React from "react"
+import BtnOutlineDanger from "./Button/BtnOutlineDanger";
 
 function TableItems(props) {
     return(
         <tr>
-            <td className='pt-3'>{props.num}</td>
-            <td className='pt-3'>{props.progLang}</td>
-            <td className='pt-3'>{props.course}</td>
+            <td className='pt-3'>{props.number}</td>
+            <td className='pt-3'>{props.post.title}</td>
+            <td className='pt-3'>{props.post.stack}</td>
             <td>
-                <button className='btn btn-outline-danger'>
+                <BtnOutlineDanger>
                     delete
-                </button>
+                </BtnOutlineDanger>
             </td>
         </tr>
     )
