@@ -3,7 +3,7 @@ import {Card, CardBody, CardHeader, Col, Container, Row} from "reactstrap";
 // import data from "bootstrap/js/src/dom/data";
 import axios, {Axios} from "axios";
 
-class BackendApi extends Component {
+class BackendAPI extends Component {
     state = {
         // user: []
         post: []
@@ -70,4 +70,4 @@ class BackendApi extends Component {
     }
 }
 
-export default BackendApi;
+export default BackendAPI;
