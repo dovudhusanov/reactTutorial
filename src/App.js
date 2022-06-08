@@ -31,7 +31,8 @@ import {
 // import ChartComp from "./ChartTutorial/ChartComp";
 // import AddValueTask from "./Task/AddValueTask";
 // import Lesson from "./componetns/newTeacher/Lesson";
-import PropsTutorial from "./componetns/newTeacher/PropsTutorial/PropsTutorial";
+// import PropsTutorial from "./componetns/newTeacher/PropsTutorial/PropsTutorial";
+import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
 
 function App() {
     return (
@@ -61,7 +62,8 @@ function App() {
                 {/*<ChartComp />*/}
                 {/* <AddValueTask /> */}
                 {/*<Lesson />*/}
-                <PropsTutorial />
+                {/* <PropsTutorial /> */}
+                <MyButton>Click</MyButton>
             </div>
         </Router>
     );
