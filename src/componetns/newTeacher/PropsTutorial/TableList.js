@@ -3,7 +3,7 @@ import TableHeader from "./TableHeader";
 import TableItems from "./TableItems";
 import '../../../style/style.css'
 
-function TableList({posts, title}) {
+function TableList({posts, title, remove}) {
     return(
         <>
             <h5 className="text-center mt-3">{title}</h5>
@@ -11,7 +11,7 @@ function TableList({posts, title}) {
                 <TableHeader />
                 <tbody className="tbody">
                 {posts.map((post, i) => (
-                    <TableItems number={i + 1} post={post} key={post.id}/>
+                    <TableItems remove={remove} number={i + 1} post={post} key={post.id}/>
                 ))}
                 </tbody>
             </table>
