@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import '../../../style/style.css'
 import TableList from "./TableList";
 import PropsForm from "./PropsForm";
+import Select from "./SelectProps/Select";
 
 function PropsTutorial() {
     const [posts, setPosts] = useState([
@@ -34,10 +35,13 @@ function PropsTutorial() {
             <div className="app mx-auto">
                 <PropsForm createPost={createPost} />
                 <div className="d-flex justify-content-end">
-                    <select className="form-select w-auto">
-                        <option value="Title">Sorted by Title</option>
-                        <option value="Job">Sorted by Job</option>
-                    </select>
+                    <Select 
+                        deafaultValue={"Sorted by"}
+                        options={[
+                            {value: "title", name: "Programming"},
+                            {value: "stack", name: "Job"}
+                        ]}
+                    />                    
                 </div>
                 {posts.length
                     ? <TableList remove={removePost} posts={posts} title="Programming Language"/>
