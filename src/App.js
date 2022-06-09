@@ -32,6 +32,7 @@ import {
 // import AddValueTask from "./Task/AddValueTask";
 // import Lesson from "./componetns/newTeacher/Lesson";
 import PropsTutorial from "./componetns/newTeacher/PropsTutorial/PropsTutorial";
+import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
 
 function App() {
     return (
@@ -62,6 +63,7 @@ function App() {
                 {/* <AddValueTask /> */}
                 {/*<Lesson />*/}
                 <PropsTutorial />
+                {/*<MyButton />*/}
             </div>
         </Router>
     );

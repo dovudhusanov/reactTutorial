@@ -11,6 +11,8 @@ function PropsTutorial() {
         {id: 3, title: 'Goo', stack: 'Back-End'},
         {id: 4 , title: 'Java', stack: 'Back-End'},
     ])
+
+    const [select, setSelect] = useState('')
     
     const createPost = (newPost) => {
       setPosts([...posts, newPost])
@@ -30,16 +32,23 @@ function PropsTutorial() {
     //     {id: 4, progLang: 'Sass', course: 'Animation'},
     // ])
 
+    const sortPost = (sort) => {
+      setSelect(sort)
+        console.log(sort)
+    }
+
     return (
         <>
             <div className="app mx-auto">
                 <PropsForm createPost={createPost} />
-                <div className="d-flex justify-content-end">
-                    <Select 
-                        deafaultValue={"Sorted by"}
+                <div className="d-flex justify-content-end my-2">
+                    <Select
+                        value={select}
+                        onChange={sortPost}
+                        defaultValue="Sorted by"
                         options={[
-                            {value: "title", name: "Programming"},
-                            {value: "stack", name: "Job"}
+                            { value: "title", name: "Programming" },
+                            { value: "stack", name: "Job" }
                         ]}
                     />                    
                 </div>

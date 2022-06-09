@@ -1,3 +1,11 @@
 .pt{
     padding-top: 19px !important;
 }
+
+.red{
+    background: red;
+}
+
+.blue{
+    background-color: blue;
+}
