@@ -34,21 +34,22 @@ function PropsTutorial() {
 
     const sortPost = (sort) => {
       setSelect(sort)
-        console.log(sort)
+      setPosts([...posts].sort((a, b) => a[sort].localeCompare(b[sort])))
     }
 
     return (
         <>
             <div className="app mx-auto">
                 <PropsForm createPost={createPost} />
-                <div className="d-flex justify-content-end my-2">
+                <div className="d-flex justify-content-between my-2">
+
                     <Select
                         value={select}
                         onChange={sortPost}
                         defaultValue="Sorted by"
                         options={[
                             { value: "title", name: "Programming" },
-                            { value: "stack", name: "Job" }
+                            { value: "stack", name: "Stack" }
                         ]}
                     />                    
                 </div>

@@ -4,7 +4,7 @@ import React from "react";
 // import MyApp from "./componetns/MyApp";
 // import MyApp12 from "./componetns/MyApp12";
 // import Car from "./componetns/carousel";
-// import card from "./componetns/card";
+import card from "./componetns/card";
 // import style from "./style/style.css";
 // import Component1 from "./props/Component1";
 // import Component2 from "./props/Component2";

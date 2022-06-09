@@ -13,8 +13,8 @@ function Select({options, defaultValue, onChange, value}) {
               {opt.name}
           </option>
         ))}
-        <option value="Title">Sorted by Title</option>
-        <option value="Job">Sorted by Job</option>
+        {/*<option value="Title">Sorted by Title</option>*/}
+        {/*<option value="Job">Sorted by Job</option>*/}
     </select>
    );
 }
