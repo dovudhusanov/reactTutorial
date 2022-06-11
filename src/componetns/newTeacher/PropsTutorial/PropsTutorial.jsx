@@ -3,6 +3,7 @@ import '../../../style/style.css'
 import TableList from "./TableList";
 import PropsForm from "./PropsForm";
 import Select from "./SelectProps/Select";
+import Input from "./Input/Input"
 
 function PropsTutorial() {
     const [posts, setPosts] = useState([
@@ -11,6 +12,18 @@ function PropsTutorial() {
         {id: 3, title: 'Goo', stack: 'Back-End'},
         {id: 4 , title: 'Java', stack: 'Back-End'},
     ])
+
+    const [select, setSelect] = useState('')
+    const [search, setSearch] = useState('')
+
+    // function getSortedPosts() {
+    //     if(select) {
+    //         return setPosts([...posts].sort((a, b) => a[select].localeCompare(b[select])))
+    //     }
+    //     return posts
+    // }
+
+    // const sortedPosts = getSortedPosts()
     
     const createPost = (newPost) => {
       setPosts([...posts, newPost])
@@ -18,6 +31,11 @@ function PropsTutorial() {
 
     const removePost = (post) => {
         setPosts(posts.filter(s => s.id !== post.id))
+    }
+
+    const sortPost = (sort) => {
+      setSelect(sort)
+      posts(setPosts([...posts].sort((a, b) => a[sort].localeCompare(b[sort]))))
     }
 
     // const [title, setTitle] = useState('')
@@ -30,16 +48,24 @@ function PropsTutorial() {
     //     {id: 4, progLang: 'Sass', course: 'Animation'},
     // ])
 
+
     return (
         <>
             <div className="app mx-auto">
                 <PropsForm createPost={createPost} />
-                <div className="d-flex justify-content-end">
-                    <Select 
-                        deafaultValue={"Sorted by"}
+                <div className="d-flex justify-content-between my-2">
+                    <Input 
+                        className="form-control"
+                        value={search}
+                        onChange={e => setSearch(e.target.value)}
+                    />
+                    <Select
+                        value={select}
+                        onChange={sortPost}
+                        defaultValue="Sorted by"
                         options={[
-                            {value: "title", name: "Programming"},
-                            {value: "stack", name: "Job"}
+                            { value: "title", name: "Programming" },
+                            { value: "stack", name: "Stack" }
                         ]}
                     />                    
                 </div>

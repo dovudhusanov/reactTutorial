@@ -4,7 +4,7 @@ import React from "react";
 // import MyApp from "./componetns/MyApp";
 // import MyApp12 from "./componetns/MyApp12";
 // import Car from "./componetns/carousel";
-// import card from "./componetns/card";
+import card from "./componetns/card";
 // import style from "./style/style.css";
 // import Component1 from "./props/Component1";
 // import Component2 from "./props/Component2";
@@ -32,7 +32,8 @@ import {
 // import AddValueTask from "./Task/AddValueTask";
 // import Lesson from "./componetns/newTeacher/Lesson";
 // import PropsTutorial from "./componetns/newTeacher/PropsTutorial/PropsTutorial";
-import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
+import PropsTutorial from "./componetns/newTeacher/PropsTutorial/PropsTutorial";
+// import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
 
 function App() {
     return (
@@ -63,7 +64,9 @@ function App() {
                 {/* <AddValueTask /> */}
                 {/*<Lesson />*/}
                 {/* <PropsTutorial /> */}
-                <MyButton>Click</MyButton>
+                {/* <MyButton>Click</MyButton> */}
+                {/*<MyButton />*/}
+                <PropsTutorial />
             </div>
         </Router>
     );

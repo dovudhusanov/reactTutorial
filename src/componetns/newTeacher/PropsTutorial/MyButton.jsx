@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import "./PropsStyle.css";
+import React, {useState} from 'react';
+import "./PropsStyle.css"
 
 function MyButton({children, onClick, className}) {
-
-    const [btn, setBtn] = useState(false)
-
+    const [click, setClick] = useState(false)
     return (
-        <button onClick={() => setBtn(!btn)} className={btn ?"blue" :"red"}>
-            {children}
-        </button>
+        <>
+            <button onClick={onClick} className={className}>
+                {children}
+            </button> 
+            {/* <button className={click?"red" : "blue"} onClick={() => setClick(!click)}>Click</button>          */}
+        </>
     );
 }
 
