@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useMemo, Children} from "react";
 import '../../../style/style.css'
 import TableList from "./TableList";
 import PropsForm from "./PropsForm";
-import Select from "./SelectProps/Select";
-import Input from "./Input/Input"
+import SearchAndFilter from "./SearchAndFilter";
+import Modal from "./Modal/Modal";
 
 function PropsTutorial() {
     const [posts, setPosts] = useState([
@@ -13,8 +13,8 @@ function PropsTutorial() {
         {id: 4 , title: 'Java', stack: 'Back-End'},
     ])
 
-    const [select, setSelect] = useState('')
-    const [search, setSearch] = useState('')
+    const [filter, setFilter] = useState({sort: '', query: ''})
+    const [modal, setModal] = useState(false)
 
     // function getSortedPosts() {
     //     if(select) {
@@ -25,18 +25,27 @@ function PropsTutorial() {
 
     // const sortedPosts = getSortedPosts()
     
+    const SortedPosts = useMemo(() => {
+        console.log('render')
+        if (filter.sort){
+            return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
+        }
+        return posts
+    }, [filter.sort, posts])
+
+    const sortedAndSearchPosts = useMemo(() => {
+        return SortedPosts.filter(post => post.title.toLocaleLowerCase().includes(filter.query.toLocaleLowerCase()))
+    }, [filter.query, SortedPosts])
+
+    // const sortedPosts = getSortedPosts()
+
     const createPost = (newPost) => {
       setPosts([...posts, newPost])
     }
 
-    const removePost = (post) => {
+    const removePost = (post => {
         setPosts(posts.filter(s => s.id !== post.id))
-    }
-
-    const sortPost = (sort) => {
-      setSelect(sort)
-      posts(setPosts([...posts].sort((a, b) => a[sort].localeCompare(b[sort]))))
-    }
+    })
 
     // const [title, setTitle] = useState('')
     // const [stack, setStack] = useState('')
@@ -52,26 +61,13 @@ function PropsTutorial() {
     return (
         <>
             <div className="app mx-auto">
-                <PropsForm createPost={createPost} />
-                <div className="d-flex justify-content-between my-2">
-                    <Input 
-                        className="form-control"
-                        value={search}
-                        onChange={e => setSearch(e.target.value)}
-                    />
-                    <Select
-                        value={select}
-                        onChange={sortPost}
-                        defaultValue="Sorted by"
-                        options={[
-                            { value: "title", name: "Programming" },
-                            { value: "stack", name: "Stack" }
-                        ]}
-                    />                    
-                </div>
-                {posts.length
-                    ? <TableList remove={removePost} posts={posts} title="Programming Language"/>
-                    : <h4 className="my-3 text-center text-danger">You should add some Post !</h4>
+                <Modal modal={modal} setModal={setModal}>
+                    <PropsForm createPost={createPost} />
+                </Modal>
+                <SearchAndFilter filter={filter} setFilter={setFilter}/>                
+                {sortedAndSearchPosts.length
+                    ? <TableList remove={removePost} posts={sortedAndSearchPosts} title="Programming Language"/>
+                    : <h4 className="my-3 text-center text-danger">Not Found</h4>
                 }
             </div>
             {/*<div className="app w-50 mx-auto">*/}

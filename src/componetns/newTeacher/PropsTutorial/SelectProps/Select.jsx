@@ -9,7 +9,7 @@ function Select({options, defaultValue, onChange, value}) {
     >
         <option disabled value="">{defaultValue}</option>
         {options.map(opt => (
-          <option key={opt.value} value={opt.value}>git
+          <option key={opt.value} value={opt.value}>
              {opt.name}
           </option>
         ))}
