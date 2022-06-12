@@ -4,6 +4,7 @@ import TableList from "./TableList";
 import PropsForm from "./PropsForm";
 import SearchAndFilter from "./SearchAndFilter";
 import Modal from "./Modal/Modal";
+import BtnPrimary from "./Button/BtnPrimary";
 
 function PropsTutorial() {
     const [posts, setPosts] = useState([
@@ -34,13 +35,25 @@ function PropsTutorial() {
     }, [filter.sort, posts])
 
     const sortedAndSearchPosts = useMemo(() => {
-        return SortedPosts.filter(post => post.title.toLocaleLowerCase().includes(filter.query.toLocaleLowerCase()))
-    }, [filter.query, SortedPosts])
+        if (filter){
+            return SortedPosts.filter(
+                post => post.title.toLocaleLowerCase().includes(filter.query.toLocaleLowerCase())
+            )
+        }else if (filter) {
+            return SortedPosts.filter(
+                post => post.stack.toLocaleLowerCase().includes(filter.sort.toLocaleLowerCase())
+            )
+        } return filter.sort
+    }, [filter.query, filter.sort, SortedPosts])
+
+
+
 
     // const sortedPosts = getSortedPosts()
 
     const createPost = (newPost) => {
       setPosts([...posts, newPost])
+        setModal(false)
     }
 
     const removePost = (post => {
@@ -61,13 +74,31 @@ function PropsTutorial() {
     return (
         <>
             <div className="app mx-auto">
-                <Modal modal={modal} setModal={setModal}>
-                    <PropsForm createPost={createPost} />
+                <BtnPrimary
+                    onClick={() => setModal(true)}
+                    className='btn'>
+                    Add Posts</BtnPrimary>
+                <Modal
+                    modal={modal}
+                    setModal={setModal}>
+                    <PropsForm
+                        createPost={createPost}
+                    />
                 </Modal>
-                <SearchAndFilter filter={filter} setFilter={setFilter}/>                
+                <SearchAndFilter
+                    filter={filter}
+                    setFilter={setFilter}
+                />
                 {sortedAndSearchPosts.length
-                    ? <TableList remove={removePost} posts={sortedAndSearchPosts} title="Programming Language"/>
-                    : <h4 className="my-3 text-center text-danger">Not Found</h4>
+                    ? <TableList
+                        remove={removePost}
+                        posts={sortedAndSearchPosts}
+                        title="Programming Language"
+                    />
+                    : <h4
+                        className="my-3 text-center text-danger">
+                        Not Found
+                    </h4>
                 }
             </div>
             {/*<div className="app w-50 mx-auto">*/}

@@ -9,8 +9,14 @@ function Modal({children, modal, setModal}) {
   }
 
   return ( 
-    <div className={[ classes.active].join(' ')}>
-        <div className={classes.ModalContent}>
+    <div
+        className={modalClasses.join(' ')}
+        onClick={() => setModal(false)}
+    >
+        <div
+            className={classes.ModalContent}
+            onClick={(e) => e.stopPropagation()}
+        >
             {children}
         </div>
     </div>

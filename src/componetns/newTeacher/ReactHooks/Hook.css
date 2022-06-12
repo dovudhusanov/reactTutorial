@@ -1,0 +1,19 @@
+body{
+    background-color: #252525;
+}
+
+.group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    min-height: 200px;
+    background-color: aliceblue;
+    flex-direction: column;
+}
+
+.btn{
+    margin-top: 15px;
+    /*width: 40%;*/
+    height: 40px;
+}
