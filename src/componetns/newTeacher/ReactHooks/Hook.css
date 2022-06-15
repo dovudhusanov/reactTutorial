@@ -15,13 +15,10 @@ body{
 .btn{
     margin-top: 15px;
     height: 40px;
-<<<<<<< HEAD
     /*width: 40%;*/
-=======
-}
+    }
 
 .btn:active{
     transition: 0.3s ease;
     transform: scale(.88);
->>>>>>> 28d4557b593e68f83d21c1519a56f5894fb58c32
 }
