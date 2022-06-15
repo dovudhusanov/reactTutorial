@@ -25,6 +25,7 @@ function UseEffect() {
                 <button className='btn btn-secondary' onClick={() => setUser("todos")}> Todos </button>
             </div>
             <pre>{JSON.stringify(data, null, 2)}</pre>
+            <p>color a</p>
         </>
     )
 }
