@@ -34,6 +34,7 @@ import {
 // import PropsTutorial from "./componetns/newTeacher/PropsTutorial/PropsTutorial";
 import PropsTutorial from "./componetns/newTeacher/PropsTutorial/PropsTutorial";
 import UseState from './componetns/newTeacher/ReactHooks/UseState';
+import Hook from "./componetns/newTeacher/ReactHooks/Hook";
 // import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
 
 function App() {
@@ -68,7 +69,7 @@ function App() {
                 {/* <MyButton>Click</MyButton> */}
                 {/*<MyButton />*/}
                 {/*<PropsTutorial />*/}
-                <UseState />
+                <Hook />
             </div>
         </Router>
     );
