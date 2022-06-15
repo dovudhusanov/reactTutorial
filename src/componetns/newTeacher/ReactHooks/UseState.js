@@ -3,6 +3,7 @@ import './Hook.css'
 
 function UseState(props) {
 
+<<<<<<< HEAD
     function randomNumber() {
         console.log("Calculate...")
         return Math.trunc(Math.random() * 20);
@@ -20,6 +21,16 @@ function UseState(props) {
                 text: "Hello",
             }
         })
+=======
+    function RandomNum () {
+        return Math.trunc(Math.random() * 20)
+    }
+
+    const [count, setCount] = useState(RandomNum())
+    function inc() {
+        console.log('Calculate...')
+        setCount(prev => prev + 1)
+>>>>>>> 28d4557b593e68f83d21c1519a56f5894fb58c32
     }
 
     return (
@@ -27,8 +38,9 @@ function UseState(props) {
             <div className='group'>
                 <h1 className='text-center'>Count: {count}</h1>
                 <div>
-                    <button className='btn btn-success' onClick={() => setCount(count + 1)}>Add</button>
-                    <button className='btn btn-danger' onClick={() => setCount(count - 1)}>Remove</button>
+                    <button className='btn btn-success' onClick={inc}>Add</button>
+                    <button className='btn btn-danger' onClick={() => setCount(count - 1)}>Dec</button>
+                    <button className='btn btn-danger' onClick={() => setCount(0)}>Remove</button>
                 </div>
                 <pre>{JSON.stringify(state, null, 2)}</pre>
                 <button onClick={updateObj} className='btn btn-secondary'>Submit</button>
