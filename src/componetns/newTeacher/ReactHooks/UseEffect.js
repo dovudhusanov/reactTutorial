@@ -14,6 +14,7 @@ function UseEffect() {
     //     console.log(`render ${user}`)
     // }, [user])
 
+<<<<<<< HEAD
     // useEffect(() => {
     //      fetch(`https://jsonplaceholder.typicode.com/${user}`)
     //         .then(response => response.json())
@@ -23,6 +24,13 @@ function UseEffect() {
     //         console.log("Clean...")
     //     }
     // }, [user])
+=======
+    useEffect(() => {
+         fetch(`https://jsonplaceholder.typicode.com/users`)
+            .then(response => response.json())
+            .then(json => setData(json))
+    }, [user])
+>>>>>>> 298169c45e213b896795872b948d1e7bbf6dff21
 
     useEffect(() => {
         window.addEventListener('mousemove', (e) => {
@@ -36,6 +44,7 @@ function UseEffect() {
     }, [position])
     return(
         <>
+<<<<<<< HEAD
             <h1 className='text-truncate'>Users: {user}</h1>
             <div className='btn-group'>
                 <button className='btn btn-success' onClick={() => setUser("users")}> Users </button>
@@ -45,6 +54,12 @@ function UseEffect() {
             {/*<pre>{JSON.stringify(data, null, 2)}</pre>*/}
             <pre>{JSON.stringify(position, null, 2)}</pre>
                 <button className='btn btn-danger' onClick={() => setUser("imaged")}> Posts </button>
+=======
+            <h1 className='text-center'>Users: {user}</h1> nimaga unaqa qilissan
+            <div className='btn-group'>
+                <button className='btn btn-success' onClick={() => setUser(setData.name)}> Users </button>
+                <button className='btn btn-danger' onClick={() => setUser("posts")}> Posts </button>
+>>>>>>> 298169c45e213b896795872b948d1e7bbf6dff21
                 <button className='btn btn-secondary' onClick={() => setUser("todos")}> Todos </button>
             <pre>{JSON.stringify(data, null, 2)}</pre>
         </>
