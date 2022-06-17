@@ -36,6 +36,7 @@ import PropsTutorial from "./componetns/newTeacher/PropsTutorial/PropsTutorial";
 import UseState from './componetns/newTeacher/ReactHooks/UseState';
 import Hook from "./componetns/newTeacher/ReactHooks/Hook";
 // import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
+import Counter from "./counter";
 
 function App() {
     return (
@@ -70,6 +71,7 @@ function App() {
                 {/*<MyButton />*/}
                 {/*<PropsTutorial />*/}
                 <Hook />
+                {/*<Counter />*/}
             </div>
         </Router>
     );
