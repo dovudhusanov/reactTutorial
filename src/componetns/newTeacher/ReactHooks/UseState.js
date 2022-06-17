@@ -13,10 +13,12 @@ function UseState(props) {
         {text: "number", data: Date.now()}
     )
 
+
     function RandomNum () {
         return Math.trunc(Math.random() * 20)
     }
 
+    // const [count, setCount] = useState(RandomNum())
     function inc() {
         console.log('Calculate...')
         setCount(prev => prev + 1)

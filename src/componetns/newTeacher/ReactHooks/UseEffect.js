@@ -14,15 +14,15 @@ function UseEffect() {
     //     console.log(`render ${user}`)
     // }, [user])
 
-    useEffect(() => {
-         fetch(`https://jsonplaceholder.typicode.com/${user}`)
-            .then(response => response.json())
-            .then(json => setData(json))
-
-        return () => {
-            console.log("Clean...")
-        }
-    }, [user])
+    // useEffect(() => {
+    //      fetch(`https://jsonplaceholder.typicode.com/${user}`)
+    //         .then(response => response.json())
+    //         .then(json => setData(json))
+    //
+    //     return () => {
+    //         console.log("Clean...")
+    //     }
+    // }, [user])
 
     useEffect(() => {
         window.addEventListener('mousemove', (e) => {
@@ -34,7 +34,6 @@ function UseEffect() {
             )
         })
     }, [position])
-
     return(
         <>
             <h1 className='text-truncate'>Users: {user}</h1>
@@ -45,6 +44,9 @@ function UseEffect() {
             </div>
             {/*<pre>{JSON.stringify(data, null, 2)}</pre>*/}
             <pre>{JSON.stringify(position, null, 2)}</pre>
+                <button className='btn btn-danger' onClick={() => setUser("imaged")}> Posts </button>
+                <button className='btn btn-secondary' onClick={() => setUser("todos")}> Todos </button>
+            <pre>{JSON.stringify(data, null, 2)}</pre>
         </>
     )
 }

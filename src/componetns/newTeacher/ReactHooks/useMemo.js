@@ -7,7 +7,7 @@ function complete(num) {
     return num * 2
 }
 
-function UseMemo(props) {
+function UseMemo() {
 
     const [number, setNumber] = useState(8)
     const [colored, setColored] = useState(false)
@@ -21,10 +21,6 @@ function UseMemo(props) {
     const computed = useMemo(() => {
         return complete(number)
     }, [number])
-
-    useEffect(() => {
-        alert("Rendering...")
-    }, [styles])
 
     useEffect(() => {
         console.log('Styles was change...')
