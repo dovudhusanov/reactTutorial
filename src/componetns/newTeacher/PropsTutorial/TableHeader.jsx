@@ -4,10 +4,8 @@ function TableHeader() {
     return(
         <thead>
             <tr>
-                <th>#</th>
-                <th>Programming Language</th>
-                <th>Stack</th>
-                <th>Actions</th>
+                <th>Posts</th>
+                <th>Delete</th>
             </tr>
         </thead>
     )

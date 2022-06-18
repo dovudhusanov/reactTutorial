@@ -2,9 +2,11 @@ import React from 'react';
 
 function BtnPrimary({children, ...props}) {
     return (
-        <button {...props} className="btn btn-primary w-100">
-            {children}
-        </button>
+        <div className='text-center'>
+            <button {...props} className="btn btn-primary w-75">
+                {children}
+            </button>
+        </div>
     );
 }
 

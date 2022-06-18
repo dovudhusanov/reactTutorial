@@ -1,21 +1,32 @@
-import React, {useState, useMemo, Children} from "react";
+import React, {useState, useMemo, Children, useEffect} from "react";
 import '../../../style/style.css'
 import TableList from "./TableList";
 import PropsForm from "./PropsForm";
 import SearchAndFilter from "./SearchAndFilter";
 import Modal from "./Modal/Modal";
 import BtnPrimary from "./Button/BtnPrimary";
+import axios from "axios";
+import PostsServiseApi from "../API/PostsServiseApi";
+import searchAndFilter from "./SearchAndFilter";
 
 function PropsTutorial() {
-    const [posts, setPosts] = useState([
-        {id: 1, title: 'TypeScript', stack: 'MERN stack'},
-        {id: 2, title: 'JavaScript', stack: 'Full-Stack'},
-        {id: 3, title: 'Goo', stack: 'Back-End'},
-        {id: 4 , title: 'Java', stack: 'Back-End'},
-    ])
+    const [posts, setPosts] = useState([])
 
     const [filter, setFilter] = useState({sort: '', query: ''})
     const [modal, setModal] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+
+    async function fetchPosts() {
+        setIsLoading(false)
+        const posts = await PostsServiseApi.getAllPosts()
+        setPosts(posts)
+        setIsLoading(true)
+    }
+
+
+    useEffect(() => {
+        fetchPosts().then(r => r)
+    }, [])
 
     // function getSortedPosts() {
     //     if(select) {
@@ -41,7 +52,7 @@ function PropsTutorial() {
             )
         }else if (filter) {
             return SortedPosts.filter(
-                post => post.stack.toLocaleLowerCase().includes(filter.sort.toLocaleLowerCase())
+                post => post.body.toLocaleLowerCase().includes(filter.sort.toLocaleLowerCase())
             )
         } return filter.sort
     }, [filter.query, filter.sort, SortedPosts])
@@ -73,7 +84,7 @@ function PropsTutorial() {
 
     return (
         <>
-            <div className="app mx-auto">
+            <div className="app mx-auto w-75">
                 <BtnPrimary
                     onClick={() => setModal(true)}
                     className='btn'>
@@ -89,16 +100,25 @@ function PropsTutorial() {
                     filter={filter}
                     setFilter={setFilter}
                 />
-                {sortedAndSearchPosts.length
+                {isLoading
                     ? <TableList
                         remove={removePost}
                         posts={sortedAndSearchPosts}
                         title="Programming Language"
                     />
-                    : <h4
-                        className="my-3 text-center text-danger">
-                        Not Found
-                    </h4>
+                    : <div className='loader'>
+                            <div className='cercleLoader an-1'></div>
+                            <div className='cercleLoader an-2'></div>
+                            <div className='cercleLoader an-3'></div>
+                        </div>
+                }
+                {searchAndFilter.length
+                    ? <h4 className='text-danger text-center'>Not Found</h4>
+                    : <TableList
+                        remove={removePost}
+                        posts={sortedAndSearchPosts}
+                        title="Programming Language"
+                    />
                 }
             </div>
             {/*<div className="app w-50 mx-auto">*/}

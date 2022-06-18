@@ -17,8 +17,8 @@ function SearchAndFilter({filter, setFilter}) {
             onChange={selected => setFilter({...filter, sort: selected})}
             defaultValue="Sorted by"
             options={[
-                { value: "title", name: "Programming" },
-                { value: "stack", name: "Stack" }
+                { value: "title", name: "Title" },
+                { value: "body", name: "Body" }
             ]}
         />                    
     </div>

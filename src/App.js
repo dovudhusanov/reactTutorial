@@ -69,8 +69,8 @@ function App() {
                 {/* <PropsTutorial /> */}
                 {/* <MyButton>Click</MyButton> */}
                 {/*<MyButton />*/}
-                {/*<PropsTutorial />*/}
-                <Hook />
+                <PropsTutorial />
+                {/*<Hook />*/}
                 {/*<Counter />*/}
             </div>
         </Router>

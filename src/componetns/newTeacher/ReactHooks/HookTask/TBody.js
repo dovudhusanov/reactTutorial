@@ -1,6 +1,6 @@
 import React from "react"
 
-function TBody(props) {
+function TBody({props, value}) {
     return(
         <>
             <tbody>

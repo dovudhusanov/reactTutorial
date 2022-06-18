@@ -14,7 +14,7 @@ function UseMemo() {
 
     const styles = useMemo(() => {
         return  {
-            color: colored ? "purple" : "black"
+            color: colored ? "green" : "black"
         };
     }, [colored])
 
