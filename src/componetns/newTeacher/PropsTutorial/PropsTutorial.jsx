@@ -23,7 +23,6 @@ function PropsTutorial() {
         setIsLoading(true)
     }
 
-
     useEffect(() => {
         fetchPosts().then(r => r)
     }, [])
@@ -100,7 +99,7 @@ function PropsTutorial() {
                     filter={filter}
                     setFilter={setFilter}
                 />
-                {isLoading
+                {isLoading && searchAndFilter
                     ? <TableList
                         remove={removePost}
                         posts={sortedAndSearchPosts}
@@ -110,15 +109,7 @@ function PropsTutorial() {
                             <div className='cercleLoader an-1'></div>
                             <div className='cercleLoader an-2'></div>
                             <div className='cercleLoader an-3'></div>
-                        </div>
-                }
-                {searchAndFilter.length
-                    ? <h4 className='text-danger text-center'>Not Found</h4>
-                    : <TableList
-                        remove={removePost}
-                        posts={sortedAndSearchPosts}
-                        title="Programming Language"
-                    />
+                    </div>
                 }
             </div>
             {/*<div className="app w-50 mx-auto">*/}
