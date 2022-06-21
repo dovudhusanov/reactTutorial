@@ -5,6 +5,7 @@ import PropsForm from "./PropsForm";
 import SearchAndFilter from "./SearchAndFilter";
 import Modal from "./Modal/Modal";
 import BtnPrimary from "./Button/BtnPrimary";
+import axios from "axios";
 
 function PropsTutorial() {
     const [posts, setPosts] = useState([
@@ -47,7 +48,10 @@ function PropsTutorial() {
     }, [filter.query, filter.sort, SortedPosts])
 
 
-
+    async function fetchPost() {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
+        console.log(response.data)
+    }
 
     // const sortedPosts = getSortedPosts()
 
