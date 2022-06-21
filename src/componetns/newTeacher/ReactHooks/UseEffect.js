@@ -13,7 +13,11 @@ function UseEffect() {
     // useEffect(() => {
     //     console.log(`render ${user}`)
     // }, [user])
+<<<<<<< HEAD
     //
+=======
+
+>>>>>>> d7ecffbf2a2b171d88c0187332ef680d49efa32e
     // useEffect(() => {
     //      fetch(`https://jsonplaceholder.typicode.com/${user}`)
     //         .then(response => response.json())
@@ -38,7 +42,7 @@ function UseEffect() {
                 }
             )
         })
-    }, [position])
+    }, [position]) //in Lifecycle method componentDidMount, componentDidUpdate, componentWillUnMount
     return(
         <>
             <h1 className='text-truncate'>Users: {user}</h1>

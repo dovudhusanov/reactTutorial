@@ -4,7 +4,7 @@ import BtnPrimary from "./Button/BtnPrimary";
 
 function PropsForm({createPost}) {
 
-    const [post, setPost] = useState({title: '', stack: ''})
+    const [post, setPost] = useState({title: '', body: ''})
     const addPost = (e) => {
         e.preventDefault()
         const newPost = {
@@ -12,7 +12,7 @@ function PropsForm({createPost}) {
             id: Date.now()
         }
         createPost(newPost)
-        setPost({title: "", stack: ""})
+        setPost({title: "", body: ""})
         // setTitle(e.target.value = '')
         // console.log(title)
         // console.log(inputRef.current.value)
@@ -31,8 +31,8 @@ function PropsForm({createPost}) {
                 type="text"
                 className="form-control my-3"
                 placeholder="Enter your favourite stack"
-                value={post.stack}
-                onChange={e => setPost({...post, stack: e.target.value})}
+                value={post.body}
+                onChange={e => setPost({...post, body: e.target.value})}
                 // ref={inputRef}
             />
             <BtnPrimary onClick={addPost}>

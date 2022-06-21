@@ -29,6 +29,7 @@ function UseRefTask() {
                 </div>
                 <table>
                     <THead />
+                    <TBody value={value}/>
                 </table>
             </div>
         </>

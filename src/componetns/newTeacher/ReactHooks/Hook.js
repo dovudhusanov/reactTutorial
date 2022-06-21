@@ -15,7 +15,7 @@ function Hook() {
                     {/*<UseEffect />*/}
                     {/*<UseRef />*/}
                     {/*<UseRefTask />*/}
-                    <UseMemo />
+                     <UseMemo />
                 </div>
             </div>
             {/*<UseRefTask />*/}

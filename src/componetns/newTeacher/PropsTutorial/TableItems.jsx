@@ -5,9 +5,11 @@ import "./PropsStyle.css"
 function TableItems(props) {
     return(
         <tr>
-            <td className='pt'>{props.number}</td>
-            <td className='pt'>{props.post.title}</td>
-            <td className='pt'>{props.post.stack}</td>
+            <td>
+                <span>{props.number}. </span>
+                <b> {props.post.title}</b>
+                <p className='w-75'>{props.post.body}</p>
+            </td>
             <td>
                 <BtnOutlineDanger onClick={() => props.remove(props.post)}>
                     delete
