@@ -57,7 +57,10 @@ function PropsTutorial() {
     }, [filter.query, filter.sort, SortedPosts])
 
 
-
+    async function fetchPost() {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
+        console.log(response.data)
+    }
 
     // const sortedPosts = getSortedPosts()
 
