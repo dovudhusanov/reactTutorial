@@ -8,21 +8,16 @@ import BtnPrimary from "./Button/BtnPrimary";
 import axios from "axios";
 import PostsServiseApi from "../API/PostsServiseApi";
 import searchAndFilter from "./SearchAndFilter";
+import {useFetching} from "../ReactHooks/HookTask/MyHook/UseFetching";
 
 function PropsTutorial() {
     const [posts, setPosts] = useState([])
-
     const [filter, setFilter] = useState({sort: '', query: ''})
     const [modal, setModal] = useState(false)
-    const [isLoading, setIsLoading] = useState(false)
-
-    async function fetchPosts() {
-        setIsLoading(false)
-        const posts = await PostsServiseApi.getAllPosts()
-        setPosts(posts)
-        setIsLoading(true)
-    }
-
+    const [fetchPosts, isLoading, postError] = useFetching( async () => {
+        const post = await PostsServiseApi.getAllPosts()
+        setPosts(post)
+    })
 
     useEffect(() => {
         fetchPosts().then(r => r)
@@ -58,10 +53,10 @@ function PropsTutorial() {
     }, [filter.query, filter.sort, SortedPosts])
 
 
-    async function fetchPost() {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
-        console.log(response.data)
-    }
+    // async function fetchPost() {
+    //     const posts = await PostsServiseApi.getAllPosts()
+    //     console.log(posts.data)
+    // }
 
     // const sortedPosts = getSortedPosts()
 
@@ -104,23 +99,15 @@ function PropsTutorial() {
                     setFilter={setFilter}
                 />
                 {isLoading
-                    ? <TableList
-                        remove={removePost}
-                        posts={sortedAndSearchPosts}
-                        title="Programming Language"
-                    />
-                    : <div className='loader'>
+                    ? <div className='loader'>
                             <div className='cercleLoader an-1'></div>
                             <div className='cercleLoader an-2'></div>
                             <div className='cercleLoader an-3'></div>
                         </div>
-                }
-                {searchAndFilter.length
-                    ? <h4 className='text-danger text-center'>Not Found</h4>
                     : <TableList
-                        remove={removePost}
-                        posts={sortedAndSearchPosts}
-                        title="Programming Language"
+                    remove={removePost}
+                    posts={sortedAndSearchPosts}
+                    title="Programming Language"
                     />
                 }
             </div>

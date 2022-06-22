@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, {useEffect, useMemo, useState} from "react";
+import axios from "axios";
 // import Count from "./componetns/counter";
 // import MyApp from "./componetns/MyApp";
 // import MyApp12 from "./componetns/MyApp12";
@@ -39,6 +39,29 @@ import Hook from "./componetns/newTeacher/ReactHooks/Hook";
 import Counter from "./counter";
 
 function App() {
+//
+//     const [posts,setPost] = useState([])
+//     const [fetchPost,setFetchPost] = useState([])
+//     const fetchPostAsync = async () => {
+//         const data = await axios.get("https://jsonplaceholder.typicode.com/posts");
+//         setPost(data)
+//         console.log("Async get ",posts)
+//     }
+//
+//     const fetchedPost = () => {
+//         fetch("https://jsonplaceholder.typicode.com/posts")
+//             .then(res=> res.json())
+//             .then(data => setFetchPost(data))
+//         console.log(" Fetch with api ",fetchPost)
+//     }
+//
+//     useEffect(() => {
+//         fetchPostAsync()
+//         fetchedPost()
+//     },[])
+
+
+
     return (
         <Router>
             <div className="MyApp">
