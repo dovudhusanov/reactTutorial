@@ -113,7 +113,6 @@
     display: flex;
     justify-content: center;
     transition: all 0.5s linear;
-    z-index: 1000;
 }
 
 .cercleLoader {

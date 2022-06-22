@@ -6,7 +6,7 @@ import '../../../style/style.css'
 function TableList({posts, title, remove}) {
     return(
         <>
-            <h5 className="text-center mt-3">{title}</h5>
+            <h5 className="text-center mt-3"><code>{title}</code></h5>
             <table className="table table-striped">
                 <TableHeader />
                 <tbody className="tbody">
