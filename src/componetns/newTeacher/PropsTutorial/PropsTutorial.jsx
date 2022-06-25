@@ -14,6 +14,7 @@ function PropsTutorial() {
     const [posts, setPosts] = useState([])
     const [filter, setFilter] = useState({sort: '', query: ''})
     const [modal, setModal] = useState(false)
+    const [totalNumber, setTotalNumber] = useState(0)
     const [fetchPosts, isLoading, postError] = useFetching( async () => {
         const post = await PostsServiseApi.getAllPosts()
         setPosts(post)
@@ -34,6 +35,7 @@ function PropsTutorial() {
     
     const SortedPosts = useMemo(() => {
         console.log('render')
+        console.log(posts)
         if (filter.sort){
             return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
         }
@@ -43,13 +45,9 @@ function PropsTutorial() {
     const sortedAndSearchPosts = useMemo(() => {
         if (filter){
             return SortedPosts.filter(
-                post => post.title.toLocaleLowerCase().includes(filter.query.toLocaleLowerCase())
-            )
-        }else if (filter) {
-            return SortedPosts.filter(
-                post => post.body.toLocaleLowerCase().includes(filter.sort.toLocaleLowerCase())
-            )
-        } return filter.sort
+                post => post.body.toLocaleLowerCase().includes(filter.query.toLocaleLowerCase())
+            ); setTotalNumber(SortedPosts.length)
+        }return filter.sort
     }, [filter.query, filter.sort, SortedPosts])
 
 
