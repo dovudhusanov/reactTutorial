@@ -9,14 +9,22 @@ import axios from "axios";
 import PostsServiseApi from "../API/PostsServiseApi";
 import searchAndFilter from "./SearchAndFilter";
 import {useFetching} from "../ReactHooks/HookTask/MyHook/UseFetching";
+import {getPageArray, getPageCount} from "./utils/page";
+import BtnSuccess from "./Button/BtnSuccess";
 
 function PropsTutorial() {
     const [posts, setPosts] = useState([])
     const [filter, setFilter] = useState({sort: '', query: ''})
+    const [totalPage, setTotalPage] = useState(0)
+    const [limit, setLimit] = useState(10)
+    const [page, setPage] = useState(1)
     const [modal, setModal] = useState(false)
+    const pageArray = getPageArray(totalPage)
     const [fetchPosts, isLoading, postError] = useFetching( async () => {
-        const post = await PostsServiseApi.getAllPosts()
-        setPosts(post)
+        const response = await PostsServiseApi.getAllPosts(limit, page)
+        setPosts(response.data)
+        const totalCount = response.headers['x-total-count']
+        setTotalPage(getPageCount(totalCount, limit))
     })
 
     useEffect(() => {
@@ -98,6 +106,7 @@ function PropsTutorial() {
                     filter={filter}
                     setFilter={setFilter}
                 />
+                {postError && <p className='text-danger p-5 font-monospace' style={{fontSize: 30}}>Error</p>}
                 {isLoading
                     ? <div className='loader'>
                             <div className='cercleLoader an-1'></div>
@@ -110,6 +119,17 @@ function PropsTutorial() {
                     title="Programming Language"
                     />
                 }
+                <ul className='pagination'>
+                    {pageArray.map(item => (
+                       <button
+                           key={item}
+                           className={page === item ? 'btn btn-primary' : 'btn btn-outline-primary'}
+                           onClick={() => setPage(item)}
+                       >
+                           {item}
+                       </button>
+                    ))}
+                </ul>
             </div>
             {/*<div className="app w-50 mx-auto">*/}
             {/*    <TableList posts={posts2} title="Free Course"/>*/}

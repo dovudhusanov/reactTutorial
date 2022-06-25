@@ -4,6 +4,7 @@ import UseEffect from "./UseEffect";
 import UseRef from "./UseRef";
 import UseRefTask from "./HookTask/UseRefTask";
 import UseMemo from "./useMemo";
+import UseCallback from "./UseCallback";
 
 
 function Hook() {
@@ -15,7 +16,8 @@ function Hook() {
                     {/*<UseEffect />*/}
                     {/*<UseRef />*/}
                     {/*<UseRefTask />*/}
-                     <UseMemo />
+                    {/* <UseMemo />*/}
+                    <UseCallback />
                 </div>
             </div>
             {/*<UseRefTask />*/}
