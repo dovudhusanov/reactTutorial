@@ -4,6 +4,9 @@ import UseEffect from "./UseEffect";
 import UseRef from "./UseRef";
 import UseRefTask from "./HookTask/UseRefTask";
 import UseMemo from "./useMemo";
+import UseCallback from "./UseCallback";
+import {UseContext} from "./useContext";
+import MainContext from "./UseContextFolder/MainContext";
 
 
 function Hook() {
@@ -15,7 +18,10 @@ function Hook() {
                     {/*<UseEffect />*/}
                     {/*<UseRef />*/}
                     {/*<UseRefTask />*/}
-                     <UseMemo />
+                    {/* <UseMemo />*/}
+                    {/*<UseCallback />*/}
+                    {/*<UseContext />*/}
+                    <MainContext />
                 </div>
             </div>
             {/*<UseRefTask />*/}

@@ -1,4 +1,5 @@
 import React, {useEffect, useMemo, useState} from "react";
+import './App.css'
 import axios from "axios";
 // import Count from "./componetns/counter";
 // import MyApp from "./componetns/MyApp";
@@ -37,6 +38,7 @@ import UseState from './componetns/newTeacher/ReactHooks/UseState';
 import Hook from "./componetns/newTeacher/ReactHooks/Hook";
 // import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
 import Counter from "./counter";
+import AsyncAwait from "./AsyncAwait/AsyncAwait";
 
 function App() {
 //
@@ -59,7 +61,6 @@ function App() {
 //         fetchPostAsync()
 //         fetchedPost()
 //     },[])
-
 
 
     return (
@@ -92,9 +93,10 @@ function App() {
                 {/* <PropsTutorial /> */}
                 {/* <MyButton>Click</MyButton> */}
                 {/*<MyButton />*/}
-                <PropsTutorial />
-                {/*<Hook />*/}
+                {/*<PropsTutorial />*/}
+                <Hook />
                 {/*<Counter />*/}
+                {/*<AsyncAwait />*/}
             </div>
         </Router>
     );
