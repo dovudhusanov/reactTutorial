@@ -39,6 +39,14 @@ import Hook from "./componetns/newTeacher/ReactHooks/Hook";
 // import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
 import Counter from "./counter";
 import AsyncAwait from "./AsyncAwait/AsyncAwait";
+import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
+import SignIn from "./componetns/newTeacher/PropsTutorial/SignIn/SignIn";
+import ReactRouter from "./ReactRouter/ReactRouter";
+import About from "./ReactRouter/About";
+import Nav from "./ReactRouter/Nav";
+import {privateRoutes, publicRoutes} from './componetns/newTeacher/PropsTutorial/Route/Router'
+import AppRouter from "./componetns/newTeacher/PropsTutorial/Router/AppRouter";
+import {AuthContext} from "./componetns/newTeacher/PropsTutorial/ContextNew";
 
 function App() {
 //
@@ -62,6 +70,14 @@ function App() {
 //         fetchedPost()
 //     },[])
 
+    const [isAuth, setIsAuth] = useState(false)
+    const [btnSign, setBtnSign] = useState('Sign In')
+
+    useEffect(() => {
+        if (localStorage.getItem('auth')) {
+            setIsAuth(true)
+        }
+    }, [])
 
     return (
         <Router>
@@ -76,12 +92,10 @@ function App() {
                 {/*<StateCounter />*/}
                 {/*<LifecycleTutorials />*/}
                 {/*<BackendAPI />*/}
-                {/*<Nav/>*/}
-                {/*<Routes>*/}
-                {/*    <Route path="/" element={<Home />} />*/}
-                {/*    <Route path="/reactRouter" element={<ReactRouter/>}/>*/}
-                {/*    <Route path="/about" element={<About/>}/>*/}
-                {/*</Routes>*/}
+                <AuthContext.Provider value={{isAuth, setIsAuth, btnSign, setBtnSign}}>
+                    <Nav/>
+                    <AppRouter />
+                </AuthContext.Provider>
                 {/*<UseState/>*/}
                 {/*<UseEffect/>*/}
                 {/*<Hosting />*/}
@@ -90,15 +104,12 @@ function App() {
                 {/*<ChartComp />*/}
                 {/* <AddValueTask /> */}
                 {/*<Lesson />*/}
-                {/* <PropsTutorial /> */}
-                {/* <MyButton>Click</MyButton> */}
-                {/*<MyButton />*/}
                 {/*<PropsTutorial />*/}
-                <Hook />
+                {/*<Hook />*/}
                 {/*<Counter />*/}
                 {/*<AsyncAwait />*/}
             </div>
-        </Router>
+         </Router>
     );
 }
 
