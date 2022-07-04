@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-function ItemsList({getItems}) {
+function ItemsList({getItems, style}) {
 
     const [items, setItems] = useState([])
     useEffect(() => {
@@ -10,7 +10,7 @@ function ItemsList({getItems}) {
     }, [getItems])
     return (
         <ul>
-            {items.map(i => <li key={i} className='text-white'>{i}</li>)}
+            {items.map(i => <li key={i} className={style}>{i}</li>)}
         </ul>
     );
 }

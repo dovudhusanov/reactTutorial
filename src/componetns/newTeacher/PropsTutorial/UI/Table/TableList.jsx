@@ -1,7 +1,7 @@
 import React from "react";
 import TableHeader from "./TableHeader";
 import TableItems from "./TableItems";
-import '../../../style/style.css'
+import '../../../../../style/style.css'
 
 function TableList({posts, title, remove}) {
     return(

@@ -1,6 +1,6 @@
 import React from 'react';
-import Input from './Input/Input';
-import Select from './SelectProps/Select';
+import Input from './UI/Input/Input';
+import Select from './UI/SelectProps/Select';
 
 function SearchAndFilter({filter, setFilter}) {
   return ( 

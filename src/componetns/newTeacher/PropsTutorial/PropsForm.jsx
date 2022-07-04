@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import Input from "./Input/Input";
-import BtnPrimary from "./Button/BtnPrimary";
+import Input from "./UI/Input/Input";
+import BtnPrimary from "./UI/Button/BtnPrimary";
 
 function PropsForm({createPost}) {
 
