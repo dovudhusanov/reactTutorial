@@ -1,6 +1,7 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import './SignIn.css'
 import {AuthContext,} from "../ContextNew";
+// import AlertSuccess from "../Alert/AlertSuccess";
 
 function SignIn(props) {
     const {isAuth, setIsAuth} = useContext(AuthContext)
@@ -8,21 +9,17 @@ function SignIn(props) {
     const [userNameValue, setUserNameValue] = useState(null)
     const [userPassValue, setUserPassValue] = useState(null)
 
-
        function login(e){
            e.preventDefault()
-           if (userNameValue === 'husanovdovudkhon' && userPassValue === 'developer5067') {
+           if (userNameValue === 'husanovdovudkhon'  && userPassValue === 'developer5067') {
                setIsAuth(true)
                localStorage.setItem('auth', 'true')
-               setBtnSign('Log out')
+               localStorage.setItem('log', setBtnSign('Log out'))
+
            } else {
-               alert('You are not Admin!')
+              alert('You are not a Admin')
            }
-
         }
-
-
-
     return (
         <div className="container">
             <div className="github-logo">

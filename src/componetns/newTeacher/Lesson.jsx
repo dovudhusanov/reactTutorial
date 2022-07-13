@@ -11,10 +11,10 @@ function Lesson() {
   return ( 
       <>
           <div className='app w-50 mx-auto'>
-              <BtnIncrDecr />
-              <br/><br/>
-              <IfElse />
-              <ValueUseState />
+              {/*<BtnIncrDecr />*/}
+              {/*<br/><br/>*/}
+              {/*<IfElse />*/}
+              {/*<ValueUseState />*/}
           </div>
       </>
    );

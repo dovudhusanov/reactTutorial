@@ -1,5 +1,6 @@
 import React, {useEffect, useMemo, useState} from "react";
 import './App.css'
+
 import axios from "axios";
 // import Count from "./componetns/counter";
 // import MyApp from "./componetns/MyApp";
@@ -39,7 +40,7 @@ import Hook from "./componetns/newTeacher/ReactHooks/Hook";
 // import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
 import Counter from "./counter";
 import AsyncAwait from "./AsyncAwait/AsyncAwait";
-import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
+// import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
 import SignIn from "./componetns/newTeacher/PropsTutorial/SignIn/SignIn";
 import ReactRouter from "./ReactRouter/ReactRouter";
 import About from "./ReactRouter/About";
@@ -47,8 +48,15 @@ import Nav from "./ReactRouter/Nav";
 import {privateRoutes, publicRoutes} from './componetns/newTeacher/PropsTutorial/Route/Router'
 import AppRouter from "./componetns/newTeacher/PropsTutorial/Router/AppRouter";
 import {AuthContext} from "./componetns/newTeacher/PropsTutorial/ContextNew";
-
+import MainPageSBBR from "./componetns/Samar Badriddinov basic react/MainPageSBBR";
+import data from "./PracticeReact/According/data";
 function App() {
+
+    const [user,setUser] = useState({
+        name:'',
+        age:""
+    })
+
 //
 //     const [posts,setPost] = useState([])
 //     const [fetchPost,setFetchPost] = useState([])
@@ -70,14 +78,24 @@ function App() {
 //         fetchedPost()
 //     },[])
 
-    const [isAuth, setIsAuth] = useState(false)
-    const [btnSign, setBtnSign] = useState('Sign In')
+    // const [isAuth, setIsAuth] = useState(false)
+    // const [btnSign, setBtnSign] = useState('Sign In')
+    //
+    // useEffect(() => {
+    //     if (localStorage.getItem('auth')) {
+    //         setIsAuth(true)
+    //     }
+    //     if (localStorage.getItem('log')) {
+    //         setBtnSign('Log out')
+    //     }
+    // }, [])
+    //
+    // const [users, setUsers]  = useState({
+    //     name: '',
+    //     age: ''
+    // })
 
-    useEffect(() => {
-        if (localStorage.getItem('auth')) {
-            setIsAuth(true)
-        }
-    }, [])
+
 
     return (
         <Router>
@@ -92,10 +110,10 @@ function App() {
                 {/*<StateCounter />*/}
                 {/*<LifecycleTutorials />*/}
                 {/*<BackendAPI />*/}
-                <AuthContext.Provider value={{isAuth, setIsAuth, btnSign, setBtnSign}}>
-                    <Nav/>
-                    <AppRouter />
-                </AuthContext.Provider>
+                {/*<AuthContext.Provider value={{isAuth, setIsAuth, btnSign, setBtnSign}}>*/}
+                {/*    <Nav/>*/}
+                {/*    <AppRouter />*/}
+                {/*</AuthContext.Provider>*/}
                 {/*<UseState/>*/}
                 {/*<UseEffect/>*/}
                 {/*<Hosting />*/}
@@ -108,8 +126,9 @@ function App() {
                 {/*<Hook />*/}
                 {/*<Counter />*/}
                 {/*<AsyncAwait />*/}
+                <MainPageSBBR />
             </div>
-         </Router>
+        </Router>
     );
 }
 

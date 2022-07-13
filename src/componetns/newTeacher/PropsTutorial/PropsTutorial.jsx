@@ -1,16 +1,18 @@
 import React, {useState, useMemo, Children, useEffect} from "react";
 import '../../../style/style.css'
-import TableList from "./TableList";
 import PropsForm from "./PropsForm";
 import SearchAndFilter from "./SearchAndFilter";
-import Modal from "./Modal/Modal";
-import BtnPrimary from "./Button/BtnPrimary";
 import axios from "axios";
 import PostsServiseApi from "../API/PostsServiseApi";
 import searchAndFilter from "./SearchAndFilter";
 import {useFetching} from "../ReactHooks/HookTask/MyHook/UseFetching";
-import {getPageArray, getPageCount} from "./utils/page";
-import BtnSuccess from "./Button/BtnSuccess";
+import Modal from "./UI/Modal/Modal";
+import BtnPrimary from "./UI/Button/BtnPrimary";
+import TableList from "./UI/Table/TableList";
+import {getPageArray, getPageCount} from "./UI/utils/page";
+import BtnSuccess from "./UI/Button/BtnSuccess";
+import Navbar from "./Nav/Navbar";
+import Nav from "../../../ReactRouter/Nav";
 
 function PropsTutorial() {
     const [posts, setPosts] = useState([])
@@ -23,13 +25,13 @@ function PropsTutorial() {
     const pageArray = getPageArray(totalPage)
     const [fetchPosts, isLoading, postError] = useFetching( async () => {
         const response = await PostsServiseApi.getAllPosts(limit, page)
-        setPosts(response.data)
         const totalCount = response.headers['x-total-count']
         setTotalPage(getPageCount(totalCount, limit))
     })
 
     useEffect(() => {
         fetchPosts().then(r => r)
+        PostsServiseApi.getAllPosts(limit, page)
     }, [])
 
     // function getSortedPosts() {
@@ -54,7 +56,7 @@ function PropsTutorial() {
         if (filter){
             return SortedPosts.filter(
                 post => post.body.toLocaleLowerCase().includes(filter.query.toLocaleLowerCase())
-            ); setTotalNumber(SortedPosts.length)
+            );
         }return filter.sort
     }, [filter.query, filter.sort, SortedPosts])
 
@@ -92,7 +94,9 @@ function PropsTutorial() {
                 <BtnPrimary
                     onClick={() => setModal(true)}
                     className='btn'>
-                    Add Posts</BtnPrimary>
+                    Add Posts
+                </BtnPrimary>
+                <Nav />
                 <Modal
                     modal={modal}
                     setModal={setModal}>
