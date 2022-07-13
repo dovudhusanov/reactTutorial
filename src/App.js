@@ -50,6 +50,7 @@ import AppRouter from "./componetns/newTeacher/PropsTutorial/Router/AppRouter";
 import {AuthContext} from "./componetns/newTeacher/PropsTutorial/ContextNew";
 import MainPageSBBR from "./componetns/Samar Badriddinov basic react/MainPageSBBR";
 import data from "./PracticeReact/According/data";
+import Form from "./componetns/newTeacher/form";
 function App() {
 
     const [user,setUser] = useState({
@@ -96,7 +97,6 @@ function App() {
     // })
 
 
-
     return (
         <Router>
             <div className="MyApp">
@@ -126,7 +126,8 @@ function App() {
                 {/*<Hook />*/}
                 {/*<Counter />*/}
                 {/*<AsyncAwait />*/}
-                <MainPageSBBR />
+                {/*<MainPageSBBR />*/}
+                <Form />
             </div>
         </Router>
     );
