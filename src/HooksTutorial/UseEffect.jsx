@@ -7,13 +7,13 @@ function UseEffect() {
     const [infosType, setInfosType] = useState('posts')
     useEffect(() => {
         document.title = `Siz ${count} marta bosdingiz`
-    }) //Sayt faqat bir marta Render bo'lishi uschun
+    })
 
-    // useEffect(() => {
-    //     fetch(`https://jsonplaceholder.typicode.com/${infosType}`)
-    //         .then((response) => response.json())
-    //         .then(res => console.log(res))
-    // }) // useEffect orqali backenddan malumot olish
+    useEffect(() => {
+        fetch(`https://jsonplaceholder.typicode.com/${infosType}`)
+            .then((response) => response.json())
+            .then(res => console.log(res))
+    })
 
     return(
         <>
