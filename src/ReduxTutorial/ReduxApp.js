@@ -5,7 +5,6 @@ function ReduxApp(props) {
     function addData(e) {
         e.preventDefault()
     }
-
     return (
         <>
             <div className="container">
@@ -17,13 +16,13 @@ function ReduxApp(props) {
                             </div>
                             <div className="card-body">
                                 <form className="mb-3 d-flex justify-content-between align-items-center" onSubmit={addData}>
-                                  <div>
-                                      <input
-                                          type="text"
-                                          className="form-control"
-                                          placeholder="write text"
-                                      />
-                                  </div>
+                                <div>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="write text"
+                                    />
+                                </div>
                                         <button
                                             className='btn btn-success mt-2'
                                         >Add</button>
