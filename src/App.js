@@ -27,6 +27,7 @@ import {Form} from "reactstrap";
 import ReduxApp from "./ReduxTutorial/ReduxApp";
 import {Provider} from "react-redux";
 import store from "./ReduxTutorial/configStore";
+import UseReducer from "./ReduxTutorial/UseReducer/UseReducer";
 // import reactRouter from "./ReactRouter/ReactRouter";
 // import about from "./ReactRouter/About";
 // import UseState from "./HooksTutorial/UseState";
@@ -132,12 +133,13 @@ function App() {
                 {/*<Counter />*/}
                 {/*<AsyncAwait />*/}
                 {/*<MainPageSBBR />*/}
-               <Provider store={store}>
-                   <ReduxApp />
-               </Provider>
+                <Provider store={store}>
+                    <ReduxApp />
+                </Provider>
+                {/*<UseReducer />*/}
             </div>
         </Router>
-    )
+    );
 }
 
 // const Home = () => {
