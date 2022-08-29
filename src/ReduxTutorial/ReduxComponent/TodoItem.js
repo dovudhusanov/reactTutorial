@@ -9,7 +9,6 @@ function TodoItem({title, id, isDone}) {
 
     function removeContent() {
         dispatch(removeTodo(id))
-        dispatch(initializeStore(JSON.parse(localStorage.getItem('todos'))))
         toast.success("Content successfully removed")
     }
 

@@ -26,8 +26,9 @@ import {
 import {Form} from "reactstrap";
 import ReduxApp from "./ReduxTutorial/ReduxApp";
 import {Provider} from "react-redux";
-import store from "./ReduxTutorial/configStore";
+// import store from "./ReduxTutorial/configStore";
 import UseReducer from "./ReduxTutorial/UseReducer/UseReducer";
+import ReduxApp2 from "./ReduxTutorial/UseReducer/ReduxTutorial2/ReduxApp2";
 // import reactRouter from "./ReactRouter/ReactRouter";
 // import about from "./ReactRouter/About";
 // import UseState from "./HooksTutorial/UseState";
@@ -56,6 +57,10 @@ import UseReducer from "./ReduxTutorial/UseReducer/UseReducer";
 // import MainPageSBBR from "./componetns/Samar Badriddinov basic react/MainPageSBBR";
 // import data from "./PracticeReact/According/data";
 // import Form from "./componetns/newTeacher/form";
+import {createStore} from "redux";
+import reducer from "./ReduxTutorial/UseReducer/ReduxTutorial2/redux/reducer";
+import ChartComp from "./ChartTutorial/ChartComp";
+import MainPageSBBR from "./componetns/Samar Badriddinov basic react/MainPageSBBR";
 
 function App() {
 //
@@ -102,6 +107,8 @@ function App() {
     //     age: ''
     // })
 
+    const store = createStore(reducer)
+
 
     return (
         <Router>
@@ -132,11 +139,14 @@ function App() {
                 {/*<Hook />*/}
                 {/*<Counter />*/}
                 {/*<AsyncAwait />*/}
-                {/*<MainPageSBBR />*/}
-                <Provider store={store}>
-                    <ReduxApp />
-                </Provider>
+                <MainPageSBBR />
+                {/*<Provider store={store}>*/}
+                {/*    <ReduxApp />*/}
+                {/*</Provider>*/}
                 {/*<UseReducer />*/}
+                {/*<Provider store={store}>*/}
+                {/*    <ReduxApp2 />*/}
+                {/*</Provider>*/}
             </div>
         </Router>
     );
