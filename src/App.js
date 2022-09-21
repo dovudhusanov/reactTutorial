@@ -39,7 +39,7 @@ import Hook from "./componetns/newTeacher/ReactHooks/Hook";
 // import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
 import Counter from "./counter";
 import AsyncAwait from "./AsyncAwait/AsyncAwait";
-import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
+// import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
 import SignIn from "./componetns/newTeacher/PropsTutorial/SignIn/SignIn";
 import ReactRouter from "./ReactRouter/ReactRouter";
 import About from "./ReactRouter/About";
@@ -47,6 +47,7 @@ import Nav from "./ReactRouter/Nav";
 import {privateRoutes, publicRoutes} from './componetns/newTeacher/PropsTutorial/Route/Router'
 import AppRouter from "./componetns/newTeacher/PropsTutorial/Router/AppRouter";
 import {AuthContext} from "./componetns/newTeacher/PropsTutorial/ContextNew";
+import Api from "./Api";
 
 function App() {
 //
@@ -77,7 +78,12 @@ function App() {
         if (localStorage.getItem('auth')) {
             setIsAuth(true)
         }
+        if (localStorage.getItem('log')) {
+            setBtnSign('Log out')
+        }
     }, [])
+
+
 
     return (
         <Router>
@@ -92,10 +98,10 @@ function App() {
                 {/*<StateCounter />*/}
                 {/*<LifecycleTutorials />*/}
                 {/*<BackendAPI />*/}
-                <AuthContext.Provider value={{isAuth, setIsAuth, btnSign, setBtnSign}}>
-                    <Nav/>
-                    <AppRouter />
-                </AuthContext.Provider>
+                {/*<AuthContext.Provider value={{isAuth, setIsAuth, btnSign, setBtnSign}}>*/}
+                {/*    <Nav/>*/}
+                {/*    <AppRouter />*/}
+                {/*</AuthContext.Provider>*/}
                 {/*<UseState/>*/}
                 {/*<UseEffect/>*/}
                 {/*<Hosting />*/}
@@ -108,6 +114,7 @@ function App() {
                 {/*<Hook />*/}
                 {/*<Counter />*/}
                 {/*<AsyncAwait />*/}
+                <Api />
             </div>
          </Router>
     );
