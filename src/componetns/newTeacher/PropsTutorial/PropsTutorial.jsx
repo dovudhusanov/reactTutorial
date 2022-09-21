@@ -11,6 +11,11 @@ import BtnPrimary from "./UI/Button/BtnPrimary";
 import TableList from "./UI/Table/TableList";
 import {getPageArray, getPageCount} from "./UI/utils/page";
 import BtnSuccess from "./UI/Button/BtnSuccess";
+<<<<<<< HEAD
+=======
+import Navbar from "./Nav/Navbar";
+import Nav from "../../../ReactRouter/Nav";
+>>>>>>> 04113e11de651413d560a8a6312d6ae7e4bc3214
 
 function PropsTutorial() {
     const [posts, setPosts] = useState([])
@@ -23,13 +28,13 @@ function PropsTutorial() {
     const pageArray = getPageArray(totalPage)
     const [fetchPosts, isLoading, postError] = useFetching( async () => {
         const response = await PostsServiseApi.getAllPosts(limit, page)
-        setPosts(response.data)
         const totalCount = response.headers['x-total-count']
         setTotalPage(getPageCount(totalCount, limit))
     })
 
     useEffect(() => {
         fetchPosts().then(r => r)
+        PostsServiseApi.getAllPosts(limit, page)
     }, [])
 
     // function getSortedPosts() {
@@ -92,7 +97,9 @@ function PropsTutorial() {
                 <BtnPrimary
                     onClick={() => setModal(true)}
                     className='btn'>
-                    Add Posts</BtnPrimary>
+                    Add Posts
+                </BtnPrimary>
+                <Nav />
                 <Modal
                     modal={modal}
                     setModal={setModal}>

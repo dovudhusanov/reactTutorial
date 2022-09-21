@@ -1,7 +1,11 @@
 import React, {useContext, useEffect, useState} from 'react';
 import './SignIn.css'
 import {AuthContext,} from "../ContextNew";
+<<<<<<< HEAD
 import AlertSuccess from "../Alert/AlertSuccess";
+=======
+// import AlertSuccess from "../Alert/AlertSuccess";
+>>>>>>> 04113e11de651413d560a8a6312d6ae7e4bc3214
 
 function SignIn(props) {
     const {isAuth, setIsAuth} = useContext(AuthContext)
