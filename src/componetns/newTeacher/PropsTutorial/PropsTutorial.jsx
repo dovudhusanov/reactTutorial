@@ -11,11 +11,8 @@ import BtnPrimary from "./UI/Button/BtnPrimary";
 import TableList from "./UI/Table/TableList";
 import {getPageArray, getPageCount} from "./UI/utils/page";
 import BtnSuccess from "./UI/Button/BtnSuccess";
-<<<<<<< HEAD
-=======
 import Navbar from "./Nav/Navbar";
 import Nav from "../../../ReactRouter/Nav";
->>>>>>> 04113e11de651413d560a8a6312d6ae7e4bc3214
 
 function PropsTutorial() {
     const [posts, setPosts] = useState([])
@@ -45,7 +42,7 @@ function PropsTutorial() {
     // }
 
     // const sortedPosts = getSortedPosts()
-    
+
     const SortedPosts = useMemo(() => {
         console.log('render')
         console.log(posts)

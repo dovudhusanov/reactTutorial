@@ -44,7 +44,6 @@ import ReduxApp2 from "./ReduxTutorial/UseReducer/ReduxTutorial2/ReduxApp2";
 // import UseState from './componetns/newTeacher/ReactHooks/UseState';
 // import Hook from "./componetns/newTeacher/ReactHooks/Hook";
 // import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
-<<<<<<< HEAD
 import Counter from "./counter";
 import AsyncAwait from "./AsyncAwait/AsyncAwait";
 // import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
@@ -56,7 +55,6 @@ import {privateRoutes, publicRoutes} from './componetns/newTeacher/PropsTutorial
 import AppRouter from "./componetns/newTeacher/PropsTutorial/Router/AppRouter";
 import {AuthContext} from "./componetns/newTeacher/PropsTutorial/ContextNew";
 import Api from "./Api";
-=======
 // import Counter from "./counter";
 // import AsyncAwait from "./AsyncAwait/AsyncAwait";
 // import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
@@ -74,7 +72,6 @@ import {createStore} from "redux";
 import reducer from "./ReduxTutorial/UseReducer/ReduxTutorial2/redux/reducer";
 import ChartComp from "./ChartTutorial/ChartComp";
 import MainPageSBBR from "./componetns/Samar Badriddinov basic react/MainPageSBBR";
->>>>>>> 04113e11de651413d560a8a6312d6ae7e4bc3214
 
 function App() {
 //
@@ -121,19 +118,16 @@ function App() {
     //     age: ''
     // })
 
-    const store = createStore(reducer)
-
-<<<<<<< HEAD
-    useEffect(() => {
-        if (localStorage.getItem('auth')) {
-            setIsAuth(true)
-        }
-        if (localStorage.getItem('log')) {
-            setBtnSign('Log out')
-        }
-    }, [])
-=======
->>>>>>> 04113e11de651413d560a8a6312d6ae7e4bc3214
+    // const store = createStore(reducer)
+    //
+    // useEffect(() => {
+    //     if (localStorage.getItem('auth')) {
+    //         setIsAuth(true)
+    //     }
+    //     if (localStorage.getItem('log')) {
+    //         setBtnSign('Log out')
+    //     }
+    // }, [])
 
 
 
@@ -166,10 +160,8 @@ function App() {
                 {/*<Hook />*/}
                 {/*<Counter />*/}
                 {/*<AsyncAwait />*/}
-<<<<<<< HEAD
                 <Api />
-=======
-                <MainPageSBBR />
+                {/*<MainPageSBBR />*/}
                 {/*<Provider store={store}>*/}
                 {/*    <ReduxApp />*/}
                 {/*</Provider>*/}
@@ -177,7 +169,6 @@ function App() {
                 {/*<Provider store={store}>*/}
                 {/*    <ReduxApp2 />*/}
                 {/*</Provider>*/}
->>>>>>> 04113e11de651413d560a8a6312d6ae7e4bc3214
             </div>
         </Router>
     );

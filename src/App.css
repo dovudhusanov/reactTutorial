@@ -4,3 +4,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.box{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    min-width: 270px;
+    padding: 20px;
+}
