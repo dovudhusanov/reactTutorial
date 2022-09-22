@@ -200,7 +200,7 @@ function App() {
                     <Route path="/" element={<MPApp />}/>
                     <Route path="/register" element={<Register />}/>
                     <Route path="/log_in" element={<Login />}/>
-                    <Route path="/users" element={<Users />} />
+                    <Route path="/users" element={<Api />} />
                 </Routes>
             </div>
         </Router>

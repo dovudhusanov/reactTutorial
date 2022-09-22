@@ -5,7 +5,7 @@ import URL from "../../api/API"
 import Video from "./Video";
 import ListVideos from "./ListVideos";
 
-function YcApp(props) {
+function YcApp() {
 
     const [videos, setVideos] = useState([])
     const [selectedVideos, setSelectedVideos] = useState({id: {}, snippet: {}})

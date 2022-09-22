@@ -5,7 +5,15 @@ import joke from "./componetns/skeletonTutorial/Joke";
 //https://dovudxon-api.herokuapp.com/api/user/create post user {name,email,password}
 //https://dovudxon-api.herokuapp.com/api/user/:id patch => {name,email,password}
 //https://dovudxon-api.herokuapp.com/api/user/:id => delete
-function Api(props) {
+
+const axiosCreateInstance = axios.create({
+    baseURL: "http://localhost:5000/api",
+    headers: {
+        "Access-Control-Allow-Origin": "http://localhost:3000"
+    }
+})
+
+function Api() {
 
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -17,12 +25,11 @@ function Api(props) {
     })
 
     const apiReq = async () => {
-        await axios.get("http://localhost:5000/api/user/all")
+        await axiosCreateInstance.get("/user/all")
             .then(res => {
                 setData(res.data)
                 console.log(res.data)
             })
-            .catch(error => console.error("Error", error))
     }
 
     useEffect(() => {
@@ -36,7 +43,7 @@ function Api(props) {
     const handleCreate = async (e) => {
         e.preventDefault()
         console.log(userId)
-        userId !== undefined ? await axios.patch(`http://localhost:5000/api/user/${userId}`) : await axios.post("http://localhost:5000/api/user/create", value)
+        userId !== undefined ? await axiosCreateInstance.patch(`/user/${userId}`) : await axiosCreateInstance.post("/user/create", value)
         setValue({
             name: "",
             email: "",
@@ -92,7 +99,8 @@ function Api(props) {
                         required
                     />
                 </div>
-                <button className={ userId !== undefined ? "btn-success btn text-white mx-3" : "btn-primary btn text-white mx-3"}>{userId !== undefined ? "Update" : "Add User"}</button>
+                <button
+                    className={userId !== undefined ? "btn-success btn text-white mx-3" : "btn-primary btn text-white mx-3"}>{userId !== undefined ? "Update" : "Add User"}</button>
             </form>
             <div className='d-flex justify-content-around flex-wrap'>
                 {data.length === 0 ? (
