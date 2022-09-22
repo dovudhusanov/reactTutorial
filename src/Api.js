@@ -36,14 +36,20 @@ function Api(props) {
     const handleCreate = async (e) => {
         e.preventDefault()
         console.log(userId)
-        userId !== undefined ? await axios.patch(`http://localhost:5000/api/user/${userId}`) : await axios.post("http://localhost:5000/api/user/create", value)
+        await axios.post("http://localhost:5000/api/user/create", value)
         setValue({
             name: "",
             email: "",
             job: ""
         })
-        setIsLoading()
+        setIsLoading(true)
+    }
+
+    async function userUpdate() {
+        await axios.patch(`http://localhost:5000/api/user/${userId}`, value)
+        setValue({name: "", email: '', job: ''})
         setUserId(undefined)
+        setIsLoading()
     }
 
     const handleDelete = async (id) => {
@@ -92,7 +98,8 @@ function Api(props) {
                         required
                     />
                 </div>
-                <button className={ userId !== undefined ? "btn-success btn text-white mx-3" : "btn-primary btn text-white mx-3"}>{userId !== undefined ? "Update" : "Add User"}</button>
+                {userId === undefined ? <button type={"submit"} className="btn btn-primary mx-3 text-white"> Create </button> :
+                    <button type={"button"} onClick={userUpdate} className="btn btn-success mx-3 text-white"> Update</button>}
             </form>
             <div className='d-flex justify-content-around flex-wrap'>
                 {data.length === 0 ? (
