@@ -8,7 +8,7 @@ import joke from "./componetns/skeletonTutorial/Joke";
 function Api(props) {
 
     const [data, setData] = useState([])
-    const [loading, setIsLaoding] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [userId, setUserId] = useState(undefined)
     const [value, setValue] = useState({
         name: "",
@@ -17,7 +17,6 @@ function Api(props) {
     })
 
     const apiReq = async () => {
-
         await axios.get("http://localhost:5000/api/user/all")
             .then(res => {
                 setData(res.data)
@@ -28,7 +27,7 @@ function Api(props) {
 
     useEffect(() => {
         apiReq()
-    }, [loading])
+    }, [isLoading])
 
     const handleChange = (e) => {
         setValue({...value, [e.target.name]: e.target.value})
@@ -43,7 +42,7 @@ function Api(props) {
             email: "",
             job: ""
         })
-        setIsLaoding()
+        setIsLoading()
         setUserId(undefined)
     }
 
@@ -104,8 +103,8 @@ function Api(props) {
                             <div key={index + 1} className='mx-3 mt-5 box'>
                                 <div className='mx-3'>
                                     <h4>{data.name}</h4>
-                                    <h4>{data.email}</h4>
-                                    <h4>{data.job}</h4>
+                                    <h6>{data.email}</h6>
+                                    <h5>{data.job}</h5>
                                 </div>
                                 <button className='btn btn-success text-white mx-3'
                                         onClick={() => handleUpdate(data)}>Update
