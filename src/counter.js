@@ -10,15 +10,18 @@ function Counter(props) {
             <button
                 className='btn btn-outline-success'
                 onClick={() => setState(prevState => prevState + 1)}
-            >Add</button>
+            >Add
+            </button>
             <button
                 className='btn btn-outline-danger'
                 onClick={() => setState(prevState => prevState - 1)}
-            >Delete</button>
+            >Delete
+            </button>
             <button
                 className='btn btn-danger'
                 onClick={() => setState(0)}
-            >Remove</button>
+            >Remove
+            </button>
         </div>
     );
 }

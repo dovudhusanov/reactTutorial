@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.login-form {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.logo{
+    width: 60px!important;
+    margin: 0 auto;
+}
+
+.login-container {
+    max-width: 600px;
+    /*min-height: 400px;*/
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 30px;
+    margin: 0 auto;
+}
+
+.login-title {
+    text-align: center;
+    padding: 20px 0 40px 0;
+}
+
+.login-title img {
+    padding: 10px 0;
+    width: 160px;
+}
+
+.login-title h1 {
+    font-size: 30px;
+}
+
+.login-title p {
+    color: grey;
+    font-size: 15px;
+    padding-top: 14px;
+}
+
+.login__form-inputs {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.24);
+    padding-bottom: 30px;
+}
+
+.button-submit button {
+    width: 100% !important;
+    box-shadow: inherit !important;
+    height: 45px !important;
+    font-weight: 700;
+    border-radius: 6px !important;
+}
+
+.button-submit button:hover {
+    box-shadow: inherit !important;
+}
+
+.create-acc-forgot-pass {
+    padding-top: 20px;
+}
+
+.create-acc-forgot-pass span {
+    display: block;
+    color: grey;
+    font-size: 14px;
+    padding: 5px 0;
+}
+
+.create-acc-forgot-pass span a {
+    text-decoration: none;
+    color: grey;
+}
+
+.create-acc-forgot-pass span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

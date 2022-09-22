@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React from "react";
 import './App.css'
 
 // import axios from "axios";
@@ -18,17 +18,20 @@ import './App.css'
 // import ReactRouter from "./ReactRouter/ReactRouter";
 // import About from "./ReactRouter/About";
 import {
-    BrowserRouter as Router,
-    Route,
-    Routes,
-    Link
+    BrowserRouter as Router, Route, Routes,
 } from "react-router-dom";
-import {Form} from "reactstrap";
-import ReduxApp from "./ReduxTutorial/ReduxApp";
-import {Provider} from "react-redux";
+import PrivateRoute from "./PrivateRoute";
+import LogIn from "./ReactAndFirebase/SignIn/LogIn";
+import NotFound from "./ReactAndFirebase/NotFound";
+import Home from "./ReactAndFirebase/Home";
+import {AuthProvider} from "./Auth";
+import Counter from "./counter";
+// import {Form} from "reactstrap";
+// import ReduxApp from "./ReduxTutorial/ReduxApp";
+// import {Provider} from "react-redux";
 // import store from "./ReduxTutorial/configStore";
-import UseReducer from "./ReduxTutorial/UseReducer/UseReducer";
-import ReduxApp2 from "./ReduxTutorial/UseReducer/ReduxTutorial2/ReduxApp2";
+// import UseReducer from "./ReduxTutorial/UseReducer/UseReducer";
+// import ReduxApp2 from "./ReduxTutorial/UseReducer/ReduxTutorial2/ReduxApp2";
 // import reactRouter from "./ReactRouter/ReactRouter";
 // import about from "./ReactRouter/About";
 // import UseState from "./HooksTutorial/UseState";
@@ -57,10 +60,26 @@ import ReduxApp2 from "./ReduxTutorial/UseReducer/ReduxTutorial2/ReduxApp2";
 // import MainPageSBBR from "./componetns/Samar Badriddinov basic react/MainPageSBBR";
 // import data from "./PracticeReact/According/data";
 // import Form from "./componetns/newTeacher/form";
-import {createStore} from "redux";
-import reducer from "./ReduxTutorial/UseReducer/ReduxTutorial2/redux/reducer";
-import ChartComp from "./ChartTutorial/ChartComp";
-import MainPageSBBR from "./componetns/Samar Badriddinov basic react/MainPageSBBR";
+// import {createStore} from "redux";
+// import reducer from "./ReduxTutorial/UseReducer/ReduxTutorial2/redux/reducer";
+// import ChartComp from "./ChartTutorial/ChartComp";
+// import MainPageSBBR from "./componetns/Samar Badriddinov basic react/MainPageSBBR";
+// import SliderApp from "./PracticeReact/Slider/SliderApp";
+// import Home from "./ReactAndFirebase/Home";
+// import LogIn from "./ReactAndFirebase/SignIn/LogIn";
+// import Login from "./ReactAndFirebase/SignUp/Login";
+// import NotFound from "./ReactAndFirebase/NotFound";
+// import {AuthProvider} from "./Auth";
+// import PrivateRoute from "./PrivateRoute";
+import SearchImg from "./PracticeReact/SearchImg/SearchImg";
+import YCApp from "./PracticeReact/YoutubeClone/YCApp";
+import QRCode from "./PracticeReact/QRCode";
+import PWAApp from "./PracticeReact/PWA/PWAApp";
+import Person from "./PracticeReact/API/Person";
+import MPApp from "./MiniProject/MPApp";
+import Login from "./MiniProject/Login/Login";
+import Register from "./MiniProject/Register/Register";
+import Users from "./MiniProject/Users/Users";
 
 function App() {
 //
@@ -69,27 +88,27 @@ function App() {
 //         age:""
 //     })
 
-//
-//     const [posts,setPost] = useState([])
-//     const [fetchPost,setFetchPost] = useState([])
-//     const fetchPostAsync = async () => {
-//         const data = await axios.get("https://jsonplaceholder.typicode.com/posts");
-//         setPost(data)
-//         console.log("Async get ",posts)
-//     }
-//
-//     const fetchedPost = () => {
-//         fetch("https://jsonplaceholder.typicode.com/posts")
-//             .then(res=> res.json())
-//             .then(data => setFetchPost(data))
-//         console.log(" Fetch with api ",fetchPost)
-//     }
-//
-//     useEffect(() => {
-//         fetchPostAsync()
-//         fetchedPost()
-//     },[])
-
+    //
+    // const [posts,setPost] = useState([])
+    // const [fetchPost,setFetchPost] = useState([])
+    // const fetchPostAsync = async () => {
+    //     const data = await axios.get("https://jsonplaceholder.typicode.com/posts");
+    //     setPost(data)
+    //     console.log("Async get ",posts)
+    // }
+    //
+    // const fetchedPost = () => {
+    //     fetch("https://jsonplaceholder.typicode.com/posts")
+    //         .then(res=> res.json())
+    //         .then(data => setFetchPost(data))
+    //     console.log(" Fetch with api ",fetchPost)
+    // }
+    //
+    // useEffect(() => {
+    //     fetchPostAsync()
+    //     fetchedPost()
+    // },[])
+    // //
     // const [isAuth, setIsAuth] = useState(false)
     // const [btnSign, setBtnSign] = useState('Sign In')
     //
@@ -106,11 +125,11 @@ function App() {
     //     name: '',
     //     age: ''
     // })
-
-    const store = createStore(reducer)
+    // const store = createStore(reducer)
 
 
     return (
+        // <AuthProvider>
         <Router>
             <div className="MyApp">
                 {/*<Count />*/}
@@ -124,8 +143,8 @@ function App() {
                 {/*<LifecycleTutorials />*/}
                 {/*<BackendAPI />*/}
                 {/*<AuthContext.Provider value={{isAuth, setIsAuth, btnSign, setBtnSign}}>*/}
-                {/*    <Nav/>*/}
-                {/*    <AppRouter />*/}
+                {/*<Nav/>*/}
+                {/*<AppRouter />*/}
                 {/*</AuthContext.Provider>*/}
                 {/*<UseState/>*/}
                 {/*<UseEffect/>*/}
@@ -133,22 +152,41 @@ function App() {
                 {/*<UseEffectTask />*/}
                 {/*<ChartTutorial />*/}
                 {/*<ChartComp />*/}
-                {/* <AddValueTask /> */}
+                {/*<AddValueTask /> */}
                 {/*<Lesson />*/}
                 {/*<PropsTutorial />*/}
                 {/*<Hook />*/}
                 {/*<Counter />*/}
                 {/*<AsyncAwait />*/}
-                <MainPageSBBR />
+                {/*<MainPageSBBR />*/}
                 {/*<Provider store={store}>*/}
-                {/*    <ReduxApp />*/}
+                {/*<ReduxApp />*/}
                 {/*</Provider>*/}
                 {/*<UseReducer />*/}
                 {/*<Provider store={store}>*/}
-                {/*    <ReduxApp2 />*/}
+                {/*<ReduxApp2 />*/}
                 {/*</Provider>*/}
+                {/*<SliderApp />*/}
+                {/*<Routes>*/}
+                {/*    <PrivateRoute exact path='/' component={Home}/>*/}
+                {/*    <Route path='/log-in' element={<LogIn />}/>*/}
+                {/*    <Route path='/register' element={<Login />}/>*/}
+                {/*    <Route path='/*' element={<NotFound />}/>*/}
+                {/*</Routes>*/}
+                {/*<SearchImg />*/}
+                {/*<YCApp />*/}
+                {/*<QRCode />*/}
+                {/*<PWAApp />*/}
+                {/*<Person />*/}
+                <Routes>
+                    <Route path="/" element={<MPApp />}/>
+                    <Route path="/register" element={<Register />}/>
+                    <Route path="/log_in" element={<Login />}/>
+                    <Route path="/users" element={<Users />} />
+                </Routes>
             </div>
         </Router>
+        // {/*</AuthProvider>*/}
     );
 }
 
