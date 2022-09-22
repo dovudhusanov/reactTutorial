@@ -47,6 +47,16 @@ import Counter from "./counter";
 // import UseState from './componetns/newTeacher/ReactHooks/UseState';
 // import Hook from "./componetns/newTeacher/ReactHooks/Hook";
 // import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
+import AsyncAwait from "./AsyncAwait/AsyncAwait";
+// import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
+import SignIn from "./componetns/newTeacher/PropsTutorial/SignIn/SignIn";
+import ReactRouter from "./ReactRouter/ReactRouter";
+import About from "./ReactRouter/About";
+import Nav from "./ReactRouter/Nav";
+import {privateRoutes, publicRoutes} from './componetns/newTeacher/PropsTutorial/Route/Router'
+import AppRouter from "./componetns/newTeacher/PropsTutorial/Router/AppRouter";
+import {AuthContext} from "./componetns/newTeacher/PropsTutorial/ContextNew";
+import Api from "./Api";
 // import Counter from "./counter";
 // import AsyncAwait from "./AsyncAwait/AsyncAwait";
 // import MyButton from "./componetns/newTeacher/PropsTutorial/MyButton";
@@ -125,10 +135,18 @@ function App() {
     //     name: '',
     //     age: ''
     // })
+
     // const store = createStore(reducer)
-
-
-    return (
+    //
+    // useEffect(() => {
+    //     if (localStorage.getItem('auth')) {
+    //         setIsAuth(true)
+    //     }
+    //     if (localStorage.getItem('log')) {
+    //         setBtnSign('Log out')
+    //     }
+    // }, [])
+    return(
         // <AuthProvider>
         <Router>
             <div className="MyApp">

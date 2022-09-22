@@ -42,7 +42,7 @@ function PropsTutorial() {
     // }
 
     // const sortedPosts = getSortedPosts()
-    
+
     const SortedPosts = useMemo(() => {
         console.log('render')
         console.log(posts)
