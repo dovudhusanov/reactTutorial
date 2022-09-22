@@ -1,6 +1,212 @@
+/**{*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
 
-*{
+/*!*.formSection{*!*/
+/*!*    display: flex;*!*/
+/*!*    justify-content: center;*!*/
+/*!*}*!*/
+
+/*!*.title{*!*/
+/*!*    font-family: system-ui, sans-serif;*!*/
+/*!*    text-align: center;*!*/
+/*!*}*!*/
+
+/*!*.result{*!*/
+/*!*    padding: 90px;*!*/
+/*!*    display: grid;*!*/
+/*!*    grid-template-columns: auto auto auto;*!*/
+/*!*}*!*/
+/*!*.result > .card{*!*/
+/*!*    display: flex;*!*/
+/*!*}*!*/
+/*!*.card > a > span > .resultImage{*!*/
+/*!*    flex: 100% 1;*!*/
+/*!*    margin-top: 1rem;*!*/
+/*!*    border-radius: 20px;*!*/
+/*!*    width: 350px;*!*/
+/*!*    padding: 10px;*!*/
+/*!*    cursor: pointer;*!*/
+/*!*}*!*/
+/*!*.card > a > .username{*!*/
+/*!*    text-align: center;*!*/
+/*!*    font-family: system-ui, sans-serif;*!*/
+/*!*}*!*/
+
+/*!*!**RESPONSIVE**!*!*/
+
+/*!*@media screen and (max-width: 501px){*!*/
+/*!*    .title{*!*/
+/*!*        font-size: 27px;*!*/
+/*!*    }*!*/
+/*!*    .formSection > input{*!*/
+/*!*        width: 50%;*!*/
+/*!*        font-size: 15px;*!*/
+/*!*    }*!*/
+/*!*    .formSection > button{*!*/
+/*!*        font-size: 15px;*!*/
+/*!*    }*!*/
+/*!*    .result{*!*/
+/*!*        display: grid;*!*/
+/*!*        grid-template-columns: auto;*!*/
+/*!*        padding: 0;*!*/
+/*!*    }*!*/
+/*!*    .card > a > span > .resultImage{*!*/
+/*!*        width: 93%!important;*!*/
+/*!*    }*!*/
+/*!*}*!*/
+
+/*body{*/
+/*    background-color: #181818;*/
+/*    overflow-x: hidden;*/
+/*}*/
+/*.logoBrand{*/
+/*    width: 150px;*/
+/*}*/
+/*.header{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-around;*/
+/*    background-color: #202020;*/
+/*    position: fixed;*/
+/*    width: 100%;*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*    height: 60px;*/
+/*}*/
+/*input{*/
+/*    width: 50%;*/
+/*    background-color: #121212;*/
+/*    padding: 15px;*/
+/*    border: none;*/
+/*    font-size: 15px;*/
+/*    color: #fff;*/
+/*    outline: none;*/
+/*    height: 42px;*/
+/*}*/
+
+/*input:focus-visible{*/
+/*    outline: 1px solid #006fff;*/
+/*}*/
+
+/*.profile{*/
+/*    margin-left: 20px;*/
+/*}*/
+/*.profile > img{*/
+/*    width: 40px;*/
+/*    height: 40px;*/
+/*    object-fit: cover;*/
+/*    border-radius: 50px;*/
+/*}*/
+/*.functions{*/
+/*    cursor: pointer;*/
+/*}*/
+/*.noResult{*/
+/*    color: #fff;*/
+/*    font-family: monospace;*/
+/*    font-size: 20px;*/
+/*}*/
+/*.videoMain{*/
+/*    display: flex;*/
+/*    justify-content: space-around;*/
+/*}*/
+
+/*iframe{*/
+/*    width: 850px;*/
+/*    height: 500px;*/
+/*}*/
+/*.videoSec{*/
+/*    padding: 0 20px;*/
+/*}*/
+
+/*.videoInfo{*/
+/*    margin: 10px 0;*/
+/*}*/
+
+/*.videoInfo > .titleVideo{*/
+/*    color: #fff;*/
+/*    font-family: system-ui;*/
+/*    font-size: 20px;*/
+/*    padding-top: 5px;*/
+/*}*/
+
+/*.channelTitle{*/
+/*    color: #fff;*/
+/*    font-family: system-ui;*/
+/*    font-size: 17px;*/
+/*    padding: 5px 0;*/
+/*}*/
+
+/*.descriptionVideo{*/
+/*    color: #Fff;*/
+/*    font-family: system-ui;*/
+/*    width: 75%;*/
+/*    font-size: 13px;*/
+/*}*/
+/*.videoItems{*/
+/*    display: inline-block;*/
+/*    cursor: pointer;*/
+/*    padding: 0 0 15px;*/
+/*}*/
+
+/*.titleVideo{*/
+/*    color: #FFffff;*/
+/*    padding: 8px 0;*/
+/*}*/
+
+body{
+    overflow-x: hidden;
+}
+
+.m{
+    display: none;
+}
+
+.m.active{
+    display: block;
+}
+
+.atitle:first-letter{
+    text-transform: uppercase;
+}
+
+.d{
+    background-color: rgb(68, 13, 119);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
     margin: 0;
+    width: 100vw;
+}
+
+.mainc{
+    padding: 20px;
+    margin: 20px 50px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+.navv{
+    display: flex;
+    justify-content: space-around;
+    height: 80px;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.logos{
+    width: 60px;
+}
+.nav-items{
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
     padding: 0;
     box-sizing: border-box;
 }

@@ -1,0 +1,101 @@
+.section {
+    padding: 0 15px;
+    text-align: center;
+    position: relative;
+    margin-top: 100px;
+}
+
+.section h2 {
+    color: #153165 !important;
+    letter-spacing: 1px;
+}
+
+.section h2 span {
+    color: #ff4e4e !important;
+    padding-right: 8px;
+}
+
+.section-center {
+    margin: 4rem auto 0;
+    width: 80vw;
+    height: 450px;
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.person-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    border: 1px solid;
+}
+
+article {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: .6s;
+    opacity: 0;
+}
+
+article h4 {
+    font-weight: bold !important;
+    font-size: 19px !important;
+    padding: 15px 0 !important;
+}
+
+.title {
+    color: grey !important;
+    font-size: 17px;
+}
+
+.text {
+    font-size: 14px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    color: grey !important;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.prev {
+    position: absolute;
+    left: 130px;
+    top: 50%;
+    color: #ffffff !important;
+}
+
+.next {
+    position: absolute;
+    right: 130px;
+    top: 50%;
+    color: #ffffff !important;
+}
+
+.next svg {
+    filter: invert(1)
+}
+
+.prev svg {
+    filter: invert(1)
+}
+
+article.activeSlide {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+article.lastSlide {
+    transform: translateX(-100%);
+}
+
+article.nextSlide {
+    transform: translateX(100%);
+}
