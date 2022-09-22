@@ -20,11 +20,6 @@ import './App.css'
 import {
     BrowserRouter as Router, Route, Routes,
 } from "react-router-dom";
-import PrivateRoute from "./PrivateRoute";
-import LogIn from "./ReactAndFirebase/SignIn/LogIn";
-import NotFound from "./ReactAndFirebase/NotFound";
-import Home from "./ReactAndFirebase/Home";
-import {AuthProvider} from "./Auth";
 import Counter from "./counter";
 // import {Form} from "reactstrap";
 // import ReduxApp from "./ReduxTutorial/ReduxApp";
