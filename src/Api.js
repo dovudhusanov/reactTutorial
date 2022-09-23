@@ -43,11 +43,7 @@ function Api() {
     const handleCreate = async (e) => {
         e.preventDefault()
         console.log(userId)
-<<<<<<< HEAD
-        userId !== undefined ? await axiosCreateInstance.patch(`/user/${userId}`) : await axiosCreateInstance.post("/user/create", value)
-=======
         await axios.post("http://localhost:5000/api/user/create", value)
->>>>>>> a16c647a49baf1d1e08c6613112ff21bd60e4ca8
         setValue({
             name: "",
             email: "",
@@ -109,13 +105,8 @@ function Api() {
                         required
                     />
                 </div>
-<<<<<<< HEAD
-                <button
-                    className={userId !== undefined ? "btn-success btn text-white mx-3" : "btn-primary btn text-white mx-3"}>{userId !== undefined ? "Update" : "Add User"}</button>
-=======
                 {userId === undefined ? <button type={"submit"} className="btn btn-primary mx-3 text-white"> Create </button> :
                     <button type={"button"} onClick={userUpdate} className="btn btn-success mx-3 text-white"> Update</button>}
->>>>>>> a16c647a49baf1d1e08c6613112ff21bd60e4ca8
             </form>
             <div className='d-flex justify-content-around flex-wrap'>
                 {data.length === 0 ? (

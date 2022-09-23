@@ -4,6 +4,36 @@
     font-family: 'Inter', sans-serif;
 }
 
+.eyes{
+    position: absolute;
+    top: 116px;
+    right: 10px;
+}
+
+.eyes i{
+    cursor: pointer;
+}
+
+.eyesConfirm{
+    position: absolute;
+    top: 167.5px;
+    right: 10px;
+}
+
+.eyesConfirm i{
+    cursor: pointer;
+}
+
+.eye{
+    position: absolute;
+    top: 62px;
+    right: 10px;
+}
+
+.eye i{
+    cursor: pointer;
+}
+
 .login-form {
     width: 100%;
     min-height: 100vh;
@@ -45,6 +75,7 @@
 .login__form-inputs {
     border-bottom: 1px solid rgba(128, 128, 128, 0.24);
     padding-bottom: 30px;
+    position: relative;
 }
 
 .button-submit button {

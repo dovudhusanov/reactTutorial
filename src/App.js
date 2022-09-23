@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './App.css'
 
 // import axios from "axios";
@@ -18,7 +18,7 @@ import './App.css'
 // import ReactRouter from "./ReactRouter/ReactRouter";
 // import About from "./ReactRouter/About";
 import {
-    BrowserRouter as Router, Route, Routes,
+    useNavigate, BrowserRouter as Router, Route, Routes,
 } from "react-router-dom";
 import Counter from "./counter";
 // import {Form} from "reactstrap";
@@ -85,6 +85,8 @@ import MPApp from "./MiniProject/MPApp";
 import Login from "./MiniProject/Login/Login";
 import Register from "./MiniProject/Register/Register";
 import Users from "./MiniProject/Users/Users";
+import localStorage from "./componetns/locaStorage Praktika/LocalStorage";
+import {AuthProvider} from "./MiniProject/context/AuthProvider";
 
 function App() {
 //
@@ -141,7 +143,8 @@ function App() {
     //         setBtnSign('Log out')
     //     }
     // }, [])
-    return(
+
+    return (
         // <AuthProvider>
         <Router>
             <div className="MyApp">
@@ -191,12 +194,14 @@ function App() {
                 {/*<QRCode />*/}
                 {/*<PWAApp />*/}
                 {/*<Person />*/}
-                <Routes>
-                    <Route path="/" element={<MPApp />}/>
-                    <Route path="/register" element={<Register />}/>
-                    <Route path="/log_in" element={<Login />}/>
-                    <Route path="/users" element={<Api />} />
-                </Routes>
+                <AuthProvider>
+                    <Routes>
+                        <Route path="/" element={<MPApp/>}/>
+                        <Route path="/users" element={<Api/>}/>
+                        <Route path="/register" element={<Register/>}/>
+                        <Route path="/log_in" element={<Login/>}/>
+                    </Routes>
+                </AuthProvider>
             </div>
         </Router>
         // {/*</AuthProvider>*/}
