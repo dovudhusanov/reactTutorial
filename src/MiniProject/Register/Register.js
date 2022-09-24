@@ -1,14 +1,34 @@
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import "../Login/Login.css";
 import {Link} from "react-router-dom";
 
+
 const Register = () => {
 
-    const [value, setValue] = useState({
-        name: "",
+    const userRef = useRef();
+    const errRef = useRef()
+
+    const [userInfo, setUserInfo] = useState({
+        userName: "",
+        validName: false,
+        userFocus: false,
+
         email: "",
-        password: "",
-        confirmPassword: ""
+        validEmail: false,
+        emailFocus: false,
+
+        pwd: "",
+        validPwd: false,
+        pwdFocus: false,
+
+        conPwd: "",
+        validConPwd: false,
+        conPwdFocus: false
+    })
+
+    const [alertMsg, setAlertMsg] = useState({
+        errMsg: '',
+        success: false
     })
 
     const [showPwd, setShowPwd] = useState({
@@ -16,15 +36,26 @@ const Register = () => {
         conPwd: false
     })
 
+    useEffect(() => {
+        userRef.current.focus()
+    }, [])
+
+    useEffect(() => {
+        const result = USER_REGEX.test(userInfo.userName)
+        console.log(result)
+        console.log(userInfo.userName)
+        userInfo.validName = result
+    })
+
     const showPwdFunc = (pass) => {
         pass === 'first'
             ? setShowPwd({
                 ...showPwd,
-                pwd: true
+                pwd: true,
             })
             : setShowPwd({
                 ...showPwd,
-                conPwd: true
+                conPwd: true,
             })
     }
 
@@ -33,17 +64,17 @@ const Register = () => {
     }
 
     const handleChange = (e) => {
-        setValue({...value, [e.target.name]: e.target.value})
+        setUserInfo({...userInfo, [e.target.name]: e.target.value})
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(value)
-        setValue({
-            name: "",
+        console.log(userInfo)
+        setUserInfo({
+            userName: "",
             email: "",
-            password: "",
-            confirmPassword: ""
+            pwd: "",
+            conPwd: ""
         })
     }
 
@@ -61,9 +92,10 @@ const Register = () => {
                                 type="text"
                                 placeholder="First Name"
                                 className="form-control w-100"
-                                name="name"
+                                name="userName"
                                 onChange={handleChange}
-                                value={value.name}
+                                value={userInfo.userName}
+                                ref={userRef}
                                 required
                             />
                             <input
@@ -72,16 +104,16 @@ const Register = () => {
                                 className="form-control w-100 my-3"
                                 name="email"
                                 onChange={handleChange}
-                                value={value.email}
+                                value={userInfo.email}
                                 required
                             />
                             <input
                                 type={showPwd.pwd ? "text" : "password"}
                                 placeholder="Password"
                                 className="form-control w-100 my-3"
-                                name="password"
+                                name="pwd"
                                 onChange={handleChange}
-                                value={value.password}
+                                value={userInfo.pwd}
                                 required
                             />
                             <div className="eyes">
@@ -95,9 +127,9 @@ const Register = () => {
                                 type={showPwd.conPwd ? "text" : "password"}
                                 placeholder="Confirm Password"
                                 className="form-control w-100 my-3"
-                                name="confirmPassword"
+                                name="conPwd"
                                 onChange={handleChange}
-                                value={value.confirmPassword}
+                                value={userInfo.conPwd}
                                 required
                             />
                             <div className="eyesConfirm">
