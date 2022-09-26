@@ -45,7 +45,7 @@ const Register = () => {
         console.log(result)
         console.log(userInfo.userName)
         userInfo.validName = result
-    })
+    }, [userInfo.userName])
 
     const showPwdFunc = (pass) => {
         pass === 'first'
