@@ -21,7 +21,7 @@ const Login = () => {
     const [errMsg, setErrMsg] = useState('')
     const [success, setSuccess] = useState(false)
     const [showPwd, setShowPwd] = useState(false)
-
+    const user = JSON.parse(localStorage.getItem('user'))
     const showPwdFunc = () => {
         setShowPwd(true)
     }
@@ -31,7 +31,10 @@ const Login = () => {
     }
 
     useEffect(() => {
-        userRef.current.focus();
+         !user && userRef.current.focus();
+
+         user && setSuccess(user)
+
     }, [])
 
     // useEffect(() => {
@@ -46,7 +49,7 @@ const Login = () => {
         e.preventDefault()
         console.log(value)
         try {
-            const response = await axios.post(LOGIN_URL, JSON.stringify({email: value.email, pwd: value.pwd}))
+            const response = await axios.post(LOGIN_URL, {email: value.email, password: value.pwd})
             console.log(JSON.stringify(response?.data))
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
@@ -79,13 +82,15 @@ const Login = () => {
     //
     // console.log(config.languages, config.set("banana"))
 
+
+
     return (
         <div className="login">
-            {success ? (
+            {!localStorage.getItem("user") ? (
                 <section>
                     <h1>You are logged in!</h1>
                     <br/>
-                    <p><a href="/">Go to Home</a></p>
+                    <p><a href="/users">Go to Home</a></p>
                 </section>
             ) : (
                 <>

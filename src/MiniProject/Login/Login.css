@@ -4,6 +4,63 @@
     font-family: 'Inter', sans-serif;
 }
 
+.instructions {
+    font-size: 0.75rem;
+    color: red;
+    position: relative;
+    top: 3px;
+    left: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.fa-circle-xmark{
+    position: relative;
+    padding-right: 5px!important;
+}
+
+.instructions > svg {
+    margin-right: 0.25rem;
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.hide {
+    display: none;
+}
+
+.valid {
+    color: limegreen;
+}
+
+.invalid {
+    color: red;
+    position: absolute;
+    top: -30px;
+    left: 1.5px;
+
+}
+
+.errmsg {
+    top: 0;
+    width: 100%;
+    position: absolute;
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+
+.line {
+    display: inline-block;
+}
+
 .eyes{
     position: absolute;
     top: 116px;
@@ -49,7 +106,7 @@
     /*min-height: 400px;*/
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 30px;
-    margin: 0 auto;
+    margin: 100px auto 0 auto;
 }
 
 .login-title {
