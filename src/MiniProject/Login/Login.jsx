@@ -2,26 +2,25 @@ import {useContext, useEffect, useRef, useState} from "react";
 import {Navigate, useNavigate} from "react-router-dom";
 import "./Login.css";
 import {Link} from "react-router-dom";
-import AuthContext from "../context/AuthProvider";
+import {AuthContext2} from "../context/auth-context";
 
 import axios from "../../api/Auth";
 
 const LOGIN_URL = "/api/auth/login";
 
 const Login = () => {
-
-    const {setAuth} = useContext(AuthContext)
-    const userRef = useRef()
-    const errRef = useRef()
+    const {Login} = useContext(AuthContext2)
+    const userRef = useRef(null)
+    const errRef = useRef(null)
 
     const [value, setValue] = useState({
         email: "",
-        pwd: ""
+        password: ""
     })
     const [errMsg, setErrMsg] = useState('')
     const [success, setSuccess] = useState(false)
     const [showPwd, setShowPwd] = useState(false)
-    const user = JSON.parse(localStorage.getItem('user'))
+
     const showPwdFunc = () => {
         setShowPwd(true)
     }
@@ -30,124 +29,71 @@ const Login = () => {
         setShowPwd(false)
     }
 
-    useEffect(() => {
-         !user && userRef.current.focus();
-
-         user && setSuccess(user)
-
-    }, [])
-
-    // useEffect(() => {
-    //     setErrMsg('')
-    // }, [userValue.lgn, userValue.pwd])
-
     const handleChange = (e) => {
         setValue({...value, [e.target.name]: e.target.value})
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(value)
-        try {
-            const response = await axios.post(LOGIN_URL, {email: value.email, password: value.pwd})
-            console.log(JSON.stringify(response?.data))
-            const accessToken = response?.data?.accessToken;
-            const roles = response?.data?.roles;
-            setAuth({email: value.email, pwd: value.pwd, roles, accessToken})
-            setValue({
-                email: "",
-                pwd: ""
-            })
-            setSuccess(true)
-        } catch (err) {
-            if (!err?.response) {
-                setErrMsg('No Server Response')
-            } else if (err?.response.status === 400) {
-                setErrMsg('Missing Email or Password')
-            } else if (err?.response.status === 401) {
-                setErrMsg("Unauthorized")
-            } else {
-                setErrMsg("Login Failed")
-            }
-            errRef.current.focus()
-        }
+        Login(value)
     }
-    //
-    // const config = {
-    //     languages: ["apple"],
-    //     set (lang) {
-    //         return this.languages.push(lang)
-    //     }
-    // }
-    //
-    // console.log(config.languages, config.set("banana"))
-
-
 
     return (
         <div className="login">
-            {!localStorage.getItem("user") ? (
+            <>
                 <section>
-                    <h1>You are logged in!</h1>
-                    <br/>
-                    <p><a href="/users">Go to Home</a></p>
+                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live={"assertive"}>{errMsg}</p>
                 </section>
-            ) : (
-                <>
-                    <section>
-                        <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live={"assertive"}>{errMsg}</p>
-                    </section>
-                    <div className="login-form">
-                        <form onSubmit={handleSubmit}>
-                            <div className="login-container">
-                                <div className="login-title">
-                                    <img src="./images/logo.png" alt="logo" className='logo'/>
-                                    <h1>Log in</h1>
-                                    <p>
-                                        Don't have a an account yet?{" "}
-                                        <Link to={"/register"}>Register</Link>
-                                    </p>
+                <div className="login-form">
+                    <form onSubmit={handleSubmit}>
+                        <div className="login-container">
+                            <div className="login-title">
+                                <img src="./images/logo.png" alt="logo" className='logo'/>
+                                <h1>Log in</h1>
+                                <p>
+                                    Don't have a an account yet?{" "}
+                                    <Link to={"/register"}>Register</Link>
+                                </p>
+                            </div>
+                            <div className="login__form-inputs">
+                                <input
+                                    type="text"
+                                    placeholder="Email"
+                                    className="form-control w-100"
+                                    ref={userRef}
+                                    name="email"
+                                    autoComplete="off"
+                                    onChange={handleChange}
+                                    value={value.email}
+                                    required
+                                />
+                                <input
+                                    type={showPwd ? "text" : "password"}
+                                    placeholder="Email"
+                                    className="form-control w-100 my-3"
+                                    name="password"
+                                    onChange={handleChange}
+                                    value={value.password}
+                                    required
+                                />
+                                <div className="eye">
+                                    {showPwd ? (
+                                        <i className="fa-solid fa-eye" onClick={hidePwd}></i>
+                                    ) : (
+                                        <i className="fa-solid fa-eye-slash" onClick={showPwdFunc}></i>
+                                    )}
                                 </div>
-                                <div className="login__form-inputs">
-                                    <input
-                                        type="text"
-                                        placeholder="Email"
-                                        className="form-control w-100"
-                                        ref={userRef}
-                                        name="email"
-                                        autoComplete="off"
-                                        onChange={handleChange}
-                                        value={value.email}
-                                        required
-                                    />
-                                    <input
-                                        type={showPwd ? "text" : "password"}
-                                        placeholder="Email"
-                                        className="form-control w-100 my-3"
-                                        name="pwd"
-                                        onChange={handleChange}
-                                        value={value.pwd}
-                                        required
-                                    />
-                                    <div className="eye">
-                                        {showPwd ? (
-                                            <i className="fa-solid fa-eye" onClick={hidePwd}></i>
-                                        ) : (
-                                            <i className="fa-solid fa-eye-slash" onClick={showPwdFunc}></i>
-                                        )}
-                                    </div>
-                                    <div className="button-submit">
-                                        <button className="btn btn-success">Log In</button>
-                                    </div>
-                                </div>
-                                <div className="create-acc-forgot-pass">
-                                    <span><Link to='/register'>Create new account</Link></span>
+                                <div className="button-submit">
+                                    <button className="btn btn-success">Log In</button>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                </>
-            )}
+                            <div className="create-acc-forgot-pass">
+                                <span><Link to='/register'>Create new account</Link></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </>
         </div>
     );
 };

@@ -112,7 +112,7 @@ const Register = () => {
                 {
                     headers: {"Content-Type": "application/json"}}
             )
-            localStorage.setItem("user",JSON.stringify(response.data))
+            localStorage.setItem("user",JSON.stringify(response.data.accessToken))
             console.log(response.data)
             console.log(response.accessToken)
             console.log(JSON.stringify(response))
