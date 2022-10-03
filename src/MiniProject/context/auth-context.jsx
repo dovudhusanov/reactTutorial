@@ -10,8 +10,6 @@ const initialState = {
     isFetching: false
 }
 
-
-
 const LOGIN_URL = "/api/auth/login";
 
 export const AuthContext2 = createContext(initialState)

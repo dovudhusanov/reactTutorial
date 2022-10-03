@@ -112,9 +112,9 @@ const Register = () => {
                 {
                     headers: {"Content-Type": "application/json"}}
             )
-            localStorage.setItem("user",JSON.stringify(response.data.accessToken))
+            // localStorage.setItem("user",JSON.stringify(response.data.token))
             console.log(response.data)
-            console.log(response.accessToken)
+            console.log(response.token)
             console.log(JSON.stringify(response))
             setAlertMsg({...alertMsg, success: true})
             setUserInfo({
@@ -148,7 +148,7 @@ const Register = () => {
                             {alertMsg.success ? (
                                 <section>
                                     <h1 className="text-success text-center">Success!</h1>
-                                    <Link to="/log_in" className="text-center">
+                                    <Link to="/" className="text-center">
                                         <button className="btn btn-success text-center ">Log In</button>
                                     </Link>
                                 </section>
@@ -260,8 +260,7 @@ const Register = () => {
 
                                     </div>
                                     <div className="create-acc-forgot-pass">
-                                        <span><Link to='/log_in'>Have an account <b>Log In</b></Link></span>
-                                        <span>Forgot password</span>
+                                        <span><Link to='/'>Have an account <b>Log In</b></Link></span>
                                     </div>
                                 </>
                             )}

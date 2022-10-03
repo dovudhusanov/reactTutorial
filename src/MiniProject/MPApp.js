@@ -14,9 +14,8 @@ function MpApp(props) {
         <div className='navv'>
             <img src="./images/logo.png" alt="" className='logos'/>
             <div className='nav-items'>
-                <Link to="/log_in"><button className='btn btn-success'>Log In</button></Link>
-                <Link to="/Register"><button className='btn btn-success'>Sign In</button></Link>
-                <button onClick={handleLogout}>Logout</button>
+                <Link to="/users"><button className='btn btn-success'>Users</button></Link>
+                <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
             </div>
         </div>
     );

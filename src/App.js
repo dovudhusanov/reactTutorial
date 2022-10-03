@@ -88,6 +88,7 @@ import Users from "./MiniProject/Users/Users";
 import localStorage from "./componetns/locaStorage Praktika/LocalStorage";
 import {AuthProvider} from "./MiniProject/context/AuthProvider";
 import {AuthContext2, AuthContextProvider} from "./MiniProject/context/auth-context";
+import Home from "./ReactAndFirebase/Home";
 // if(typeof window==="undefined"){
 //     <Login/>
 // }
@@ -149,80 +150,84 @@ function App() {
     //         setBtnSign('Log out')
     //     }
     // }, [])
-    const {token,count} = useContext(AuthContext2)
+    const {token, count} = useContext(AuthContext2)
 
     useEffect(() => {
         !token && navigate("/")
-    }, [token])
+    }, [!token])
 
-console.log(!token)
-console.log(AuthContext2)
+    console.log(!token)
+    console.log(AuthContext2)
     return (
         // <AuthProvider>
-            <div className="MyApp">
-                {/*<Count />*/}
-                {/*<MyApp />*/}
-                {/*<MyApp12 />*/}
-                {/*<Car />*/}
-                {/*<Component1 name="Dovudhon" age="16"/>*/}
-                {/*<Component2 profession = 'Wev-Developer'/>*/}
-                {/*<StateTutorial1 />*/}
-                {/*<StateCounter />*/}
-                {/*<LifecycleTutorials />*/}
-                {/*<BackendAPI />*/}
-                {/*<AuthContext.Provider value={{isAuth, setIsAuth, btnSign, setBtnSign}}>*/}
-                {/*<Nav/>*/}
-                {/*<AppRouter />*/}
-                {/*</AuthContext.Provider>*/}
-                {/*<UseState/>*/}
-                {/*<UseEffect/>*/}
-                {/*<Hosting />*/}
-                {/*<UseEffectTask />*/}
-                {/*<ChartTutorial />*/}
-                {/*<ChartComp />*/}
-                {/*<AddValueTask /> */}
-                {/*<Lesson />*/}
-                {/*<PropsTutorial />*/}
-                {/*<Hook />*/}
-                {/*<Counter />*/}
-                {/*<AsyncAwait />*/}
-                {/*<MainPageSBBR />*/}
-                {/*<Provider store={store}>*/}
-                {/*<ReduxApp />*/}
-                {/*</Provider>*/}
-                {/*<UseReducer />*/}
-                {/*<Provider store={store}>*/}
-                {/*<ReduxApp2 />*/}
-                {/*</Provider>*/}
-                {/*<SliderApp />*/}
-                {/*<Routes>*/}
-                {/*    <PrivateRoute exact path='/' component={Home}/>*/}
-                {/*    <Route path='/log-in' element={<LogIn />}/>*/}
-                {/*    <Route path='/register' element={<Login />}/>*/}
-                {/*    <Route path='/*' element={<NotFound />}/>*/}
-                {/*</Routes>*/}
-                {/*<SearchImg />*/}
-                {/*<YCApp />*/}
-                {/*<QRCode />*/}
-                {/*<PWAApp />*/}
-                {/*<Person />*/}
-                <AuthContextProvider>
-                    <Routes>
-                        {token ? (
-                            <>
-                                <Route exact path="/" element={<MPApp/>}/>
-                                <Route path="/users" element={<Api/>}/>
-                            </>
+        <div className="MyApp">
+            {/*<Count />*/}
+            {/*<MyApp />*/}
+            {/*<MyApp12 />*/}
+            {/*<Car />*/}
+            {/*<Component1 name="Dovudhon" age="16"/>*/}
+            {/*<Component2 profession = 'Wev-Developer'/>*/}
+            {/*<StateTutorial1 />*/}
+            {/*<StateCounter />*/}
+            {/*<LifecycleTutorials />*/}
+            {/*<BackendAPI />*/}
+            {/*<AuthContext.Provider value={{isAuth, setIsAuth, btnSign, setBtnSign}}>*/}
+            {/*<Nav/>*/}
+            {/*<AppRouter />*/}
+            {/*</AuthContext.Provider>*/}
+            {/*<UseState/>*/}
+            {/*<UseEffect/>*/}
+            {/*<Hosting />*/}
+            {/*<UseEffectTask />*/}
+            {/*<ChartTutorial />*/}
+            {/*<ChartComp />*/}
+            {/*<AddValueTask /> */}
+            {/*<Lesson />*/}
+            {/*<PropsTutorial />*/}
+            {/*<Hook />*/}
+            {/*<Counter />*/}
+            {/*<AsyncAwait />*/}
+            {/*<MainPageSBBR />*/}
+            {/*<Provider store={store}>*/}
+            {/*<ReduxApp />*/}
+            {/*</Provider>*/}
+            {/*<UseReducer />*/}
+            {/*<Provider store={store}>*/}
+            {/*<ReduxApp2 />*/}
+            {/*</Provider>*/}
+            {/*<SliderApp />*/}
+            {/*<Routes>*/}
+            {/*    <PrivateRoute exact path='/' component={Home}/>*/}
+            {/*    <Route path='/log-in' element={<LogIn />}/>*/}
+            {/*    <Route path='/register' element={<Login />}/>*/}
+            {/*    <Route path='/*' element={<NotFound />}/>*/}
+            {/*</Routes>*/}
+            {/*<SearchImg />*/}
+            {/*<YCApp />*/}
+            {/*<QRCode />*/}
+            {/*<PWAApp />*/}
+            {/*<Person />*/}
+            <AuthContextProvider>
+                {token ? (
+                    <>
+                        <MPApp/>
+                        <Routes>
+                            <Route exact path="/" element={<Home />} />
+                            <Route path="/users" element={<Api/>}/>
+                        </Routes>
+                    </>
 
-                        ) : (
-                            <>
-                                <Route path="/register" element={<Register/>}/>
-                                <Route exact path="/" element={<Login/>}/>
-                            </>
-                        )}
+                ) : (
+                    <Routes>
+                        <>
+                            <Route path="/register" element={<Register/>}/>
+                            <Route exact path="/" element={<Login/>}/>
+                        </>
                     </Routes>
-                </AuthContextProvider>
-            </div>
+
+                )}
+            </AuthContextProvider>
+        </div>
         // {/*</AuthProvider>*/}
     );
 }
